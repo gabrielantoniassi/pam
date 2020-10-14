@@ -59,7 +59,7 @@ int main () {
 	
 //	result(ar1, ar2)
 
-	// xijkl representa um vetor x = [xij, xkl]
+	// xijkl representa um vetor x = [xij, xkl], onde x = a, b, sao as matrizes
 	__vector double a0000, a0101, a0202, a0303;
 	__vector double a1010, a1111, a1212, a1313;
 	__vector double a2020, a2121, a2222, a2323;
