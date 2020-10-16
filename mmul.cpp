@@ -50,6 +50,10 @@ Matrix matMul(Matrix m1, Matrix m2) {
   return out;
 }
 
+void teste() {
+  cout << "hello\n";
+}
+
 
 int main() {
 
