@@ -60,7 +60,7 @@ int main() {
 
   mr = matMul(m1, m2);
 
-  printMat(mr);
+  mr.printMat();
 
   return 0;
 }
