@@ -70,16 +70,16 @@ public:
     void printMat() {
       for (int i = 0; i < m_rows; i ++) {
         for (int j = 0; j < m_cols; j++) {
-          cout << m_data[i*ncols + j] << " ";
+          cout << m_data[i*m_cols + j] << "\t";
         }
         cout << '\n';
       }
     }
 
-    m4x4<Scalar, rows, mdepth> mul4x4(const SMatrix<Scalar, mdepth, mcols>& rhs);
+    SMatrix<Scalar, rows, cols> mul4x4(const SMatrix<Scalar, mdepth, mcols>& rhs);
 };
 
-SMatrix<Scalar, rows, mdepth> SMatrix :: mul4x4(const SMatrix<Scalar, mdepth, mcols>& rhs)
+SMatrix<Scalar, rows, cols> SMatrix :: mul4x4(const SMatrix<Scalar, mdepth, mcols>& rhs)
 {
   boolean_mLHSisRowMajor = StorageOrder;
   Scalar* mLHS = &m_data;
