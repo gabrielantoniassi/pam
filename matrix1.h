@@ -1,4 +1,5 @@
 #include <iostream>
+#include <altivec.h>
 
 enum EStorageOrder : int { RowMajor, ColMajor };
 
