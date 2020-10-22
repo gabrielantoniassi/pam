@@ -67,6 +67,15 @@ public:
         return out;
     }
 
+    void printMat() {
+      for (int i = 0; i < m_rows; i ++) {
+        for (int j = 0; j < m_cols; j++) {
+          cout << m_data[i*ncols + j] << " ";
+        }
+        cout << '\n';
+      }
+    }
+
     m4x4<Scalar, rows, mdepth> mul4x4(const SMatrix<Scalar, mdepth, mcols>& rhs);
 };
 
