@@ -76,16 +76,14 @@ public:
       }
     }
 
-    SMatrix<Scalar, rows, cols> mul4x4(const SMatrix<Scalar, mdepth, mcols>& rhs);
-};
-
-SMatrix<Scalar, rows, cols> SMatrix :: mul4x4(const SMatrix<Scalar, mdepth, mcols>& rhs)
+    template<int mdepth = 4, int mcols = 4>
+    SMatrix<Scalar, rows, cols> mul4x4(const SMatrix<Scalar, mdepth, mcols> rhs)
 {
-  boolean_mLHSisRowMajor = StorageOrder;
-  Scalar* mLHS = &m_data;
-  Scalar* mRHS = &rhs.m_data;
-  m4x4<Scalar, rows, mdepth> res;
-  Scalar* mResult = &res.m_data;
+  int boolean_mLHSisRowMajor = StorageOrder;
+  const Scalar* mLHS = m_data;
+  const Scalar* mRHS = rhs.m_data;
+  SMatrix<Scalar, rows, cols> res;
+  const Scalar* mResult = res.m_data;
 
 
   __vector double mLHScol11, mLHScol21, mLHScol31, mLHScol41,
@@ -208,4 +206,6 @@ SMatrix<Scalar, rows, cols> SMatrix :: mul4x4(const SMatrix<Scalar, mdepth, mcol
                   vec_madd(mRHSrow22, vAuxLHS24, vec_mul(mRHSrow12, vAuxLHS14)),
                   vec_madd(mRHSrow42, vAuxLHS44, vec_mul(mRHSrow32, vAuxLHS34)) ),
           0, mResult + 14);
+  return res;
 }
+};
