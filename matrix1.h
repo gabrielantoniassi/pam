@@ -79,11 +79,11 @@ public:
     template<int mdepth = 4, int mcols = 4>
     SMatrix<Scalar, rows, cols> mul4x4(const SMatrix<Scalar, mdepth, mcols> rhs)
 {
-  int boolean_mLHSisRowMajor = StorageOrder;
+  int boolean_mLHSisRowMajor = (StorageOrder == RowMajor);
   const Scalar* mLHS = m_data;
   const Scalar* mRHS = rhs.m_data;
   SMatrix<Scalar, rows, cols> res;
-  const Scalar* mResult = res.m_data;
+  const Scalar* mResult = res.m_data; // mResult esta como const
 
 
   __vector double mLHScol11, mLHScol21, mLHScol31, mLHScol41,
