@@ -17,7 +17,7 @@ int main () {
 	cout << m1 << endl << m2 << endl;
 
 
-	SMatrix<double, 4, 4> mr =  m1.mul4x4<4, 4>(m2);
+	SMatrix<double, 4, 4> mr =  m1.mul4x4(m2);
 
 	cout << mr;
 
