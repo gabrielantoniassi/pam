@@ -98,38 +98,38 @@ SMatrix<Scalar, rows, cols> SMatrix :: mul4x4(const SMatrix<Scalar, mdepth, mcol
           const static __vector unsigned char GETCOL2 = { 8, 9, 10, 11, 12, 13, 14, 15,
                                                            24, 25, 26, 27, 28, 29, 30, 31};
 
-          __vector double mLHSaux1 = vec_xl(0, m_data);
-          __vector double mLHSaux2 = vec_xl(0, m_data + 4);
+          __vector double mLHSaux1 = vec_xl(0, this.m_data);
+          __vector double mLHSaux2 = vec_xl(0, this.m_data + 4);
           mLHScol11 = vec_perm(mLHSaux1, mLHSaux2, GETCOL1);
           mLHScol21 = vec_perm(mLHSaux1, mLHSaux2, GETCOL2);
 
-          __vector double mLHSaux3 = vec_xl(0, m_data + 2);
-          __vector double mLHSaux4 = vec_xl(0, m_data + 6);
+          __vector double mLHSaux3 = vec_xl(0, this.m_data + 2);
+          __vector double mLHSaux4 = vec_xl(0, this.m_data + 6);
           mLHScol31 = vec_perm(mLHSaux3, mLHSaux4, GETCOL1);
           mLHScol41 = vec_perm(mLHSaux3, mLHSaux4, GETCOL2);
 
-          __vector double mLHSaux5 = vec_xl(0, m_data + 8);
-          __vector double mLHSaux6 = vec_xl(0, m_data + 12);
+          __vector double mLHSaux5 = vec_xl(0, this.m_data + 8);
+          __vector double mLHSaux6 = vec_xl(0, this.m_data + 12);
           mLHScol12 = vec_perm(mLHSaux5, mLHSaux6, GETCOL1);
           mLHScol22 = vec_perm(mLHSaux5, mLHSaux6, GETCOL2);
 
-          __vector double mLHSaux7 = vec_xl(0, m_data + 10);
-          __vector double mLHSaux8 = vec_xl(0, m_data + 14);
+          __vector double mLHSaux7 = vec_xl(0, this.m_data + 10);
+          __vector double mLHSaux8 = vec_xl(0, this.m_data + 14);
           mLHScol32 = vec_perm(mLHSaux7, mLHSaux8, GETCOL1);
           mLHScol42 = vec_perm(mLHSaux7, mLHSaux8, GETCOL2);
   }
   else{
-          mLHScol11 = vec_xl(0, m_data);
-          mLHScol12 = vec_xl(0, m_data + 2);
+          mLHScol11 = vec_xl(0, this.m_data);
+          mLHScol12 = vec_xl(0, this.m_data + 2);
 
-          mLHScol21 = vec_xl(0, m_data + 4);
-          mLHScol22 = vec_xl(0, m_data + 6);
+          mLHScol21 = vec_xl(0, this.m_data + 4);
+          mLHScol22 = vec_xl(0, this.m_data + 6);
 
-          mLHScol31 = vec_xl(0, m_data + 8);
-          mLHScol32 = vec_xl(0, m_data + 10);
+          mLHScol31 = vec_xl(0, this.m_data + 8);
+          mLHScol32 = vec_xl(0, this.m_data + 10);
 
-          mLHScol41 = vec_xl(0, m_data + 12);
-          mLHScol42 = vec_xl(0, m_data + 14);
+          mLHScol41 = vec_xl(0, this.m_data + 12);
+          mLHScol42 = vec_xl(0, this.m_data + 14);
   }
 
   mRHSrow11 = vec_xl(0, rhs.m_data);

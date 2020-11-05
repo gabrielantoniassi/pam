@@ -10,8 +10,8 @@ int main () {
 	SMatrix<double, 4, 4> m2(1);
 
 	for (int i = 0; i < 4*4; i++) {
-		m1.m_data[i] = i + 1f;
-		m2.m_data[i] = i + 4*4 + 1f;
+		m1.m_data[i] = i + 1;
+		m2.m_data[i] = i + 4*4 + 1;
 	}
 
 	cout << m1 << endl << m2 << endl;
