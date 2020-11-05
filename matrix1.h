@@ -77,10 +77,7 @@ public:
     }
 
     template<int mdepth = 4, int mcols = 4>
-    SMatrix<Scalar, rows, cols> mul4x4(const SMatrix<Scalar, mdepth, mcols> rhs);
-};
-
-SMatrix<Scalar, rows, cols> SMatrix :: mul4x4(const SMatrix<Scalar, mdepth, mcols> rhs);
+SMatrix<Scalar, rows, cols> mul4x4(const SMatrix<Scalar, mdepth, mcols> rhs)
 {
   SMatrix<Scalar, rows, cols> res;
   const Scalar* mResult = res.m_data; // mResult esta como const
@@ -208,3 +205,4 @@ SMatrix<Scalar, rows, cols> SMatrix :: mul4x4(const SMatrix<Scalar, mdepth, mcol
 
   return res;
 }
+};
