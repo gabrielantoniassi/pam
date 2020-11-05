@@ -77,19 +77,20 @@ public:
     }
 
     template<int mdepth = 4, int mcols = 4>
-    SMatrix<Scalar, rows, cols> mul4x4(const SMatrix<Scalar, mdepth, mcols> rhs)
+    SMatrix<Scalar, rows, cols> mul4x4(const SMatrix<Scalar, mdepth, mcols> rhs);
+};
+
+SMatrix<Scalar, rows, cols> SMatrix :: mul4x4(const SMatrix<Scalar, mdepth, mcols> rhs);
 {
-  int boolean_mLHSisRowMajor = (StorageOrder == RowMajor);
   SMatrix<Scalar, rows, cols> res;
   const Scalar* mResult = res.m_data; // mResult esta como const
-
 
   __vector double mLHScol11, mLHScol21, mLHScol31, mLHScol41,
                   mLHScol12, mLHScol22, mLHScol32, mLHScol42,
                   mRHSrow11, mRHSrow21, mRHSrow31, mRHSrow41,
                   mRHSrow12, mRHSrow22, mRHSrow32, mRHSrow42;
 
-  if (boolean_mLHSisRowMajor)
+  if (StorageOrder == RowMajor)
   {
           //{ [a11 a12 a13 a14], [a21 a22 a23 a24], [a31 a32 a33 a34], [a41 a42 a43 a44]}
 
@@ -136,7 +137,7 @@ public:
   mRHSrow11 = vec_xl(0, rhs.m_data);
   mRHSrow12 = vec_xl(0, rhs.m_data + 2);
 
-  mRHSrow21 = vec_xl(0, mRrhs.m_dataHS + 4);
+  mRHSrow21 = vec_xl(0, rhs.m_data + 4);
   mRHSrow22 = vec_xl(0, rhs.m_data + 6);
 
   mRHSrow31 = vec_xl(0, rhs.m_data + 8);
@@ -169,41 +170,41 @@ public:
   vec_xst(vec_add(
                   vec_madd(mRHSrow21, vAuxLHS21, vec_mul(mRHSrow11, vAuxLHS11)),
                   vec_madd(mRHSrow41, vAuxLHS41, vec_mul(mRHSrow31, vAuxLHS31)) ),
-          0, mResult);
+          0, res.m_data);
   vec_xst(vec_add(
                   vec_madd(mRHSrow22, vAuxLHS21, vec_mul(mRHSrow12, vAuxLHS11)),
                   vec_madd(mRHSrow42, vAuxLHS41, vec_mul(mRHSrow32, vAuxLHS31)) ),
-          0, mResult + 2);
+          0, res.m_data + 2);
 
   //building the second row of mResult
   vec_xst(vec_add(
                   vec_madd(mRHSrow21, vAuxLHS22, vec_mul(mRHSrow11, vAuxLHS12)),
                   vec_madd(mRHSrow41, vAuxLHS42, vec_mul(mRHSrow31, vAuxLHS32)) ),
-          0, mResult + 4);
+          0, res.m_data + 4);
   vec_xst(vec_add(
                   vec_madd(mRHSrow22, vAuxLHS22, vec_mul(mRHSrow12, vAuxLHS12)),
                   vec_madd(mRHSrow42, vAuxLHS42, vec_mul(mRHSrow32, vAuxLHS32)) ),
-          0, mResult + 6);
+          0, res.m_data + 6);
 
   //building the third row of mResult
   vec_xst(vec_add(
                   vec_madd(mRHSrow21, vAuxLHS23, vec_mul(mRHSrow11, vAuxLHS13)),
                   vec_madd(mRHSrow41, vAuxLHS43, vec_mul(mRHSrow31, vAuxLHS33)) ),
-          0, mResult + 8);
+          0, res.m_data + 8);
   vec_xst(vec_add(
                   vec_madd(mRHSrow22, vAuxLHS23, vec_mul(mRHSrow12, vAuxLHS13)),
                   vec_madd(mRHSrow42, vAuxLHS43, vec_mul(mRHSrow32, vAuxLHS33)) ),
-          0, mResult + 10);
+          0, res.m_data + 10);
 
   //building the fourth row of mResult
   vec_xst(vec_add(
                   vec_madd(mRHSrow21, vAuxLHS24, vec_mul(mRHSrow11, vAuxLHS14)),
                   vec_madd(mRHSrow41, vAuxLHS44, vec_mul(mRHSrow31, vAuxLHS34)) ),
-          0, mResult + 12);
+          0, res.m_data + 12);
   vec_xst(vec_add(
                   vec_madd(mRHSrow22, vAuxLHS24, vec_mul(mRHSrow12, vAuxLHS14)),
                   vec_madd(mRHSrow42, vAuxLHS44, vec_mul(mRHSrow32, vAuxLHS34)) ),
-          0, mResult + 14);
+          0, res.m_data + 14);
+
   return res;
 }
-};
