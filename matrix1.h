@@ -67,7 +67,8 @@ public:
         return out;
     }
 
-    SMatrix<Scalar, 4, 4> mul4x4(const SMatrix<Scalar, 4, 4> rhs)
+    template<>
+    SMatrix<Scalar, 4, 4> mul(const SMatrix<Scalar, 4, 4> rhs) // depois chama m3 = m1.mul<4, 4>(m2)
     {
       SMatrix<Scalar, 4, 4> res;
 
