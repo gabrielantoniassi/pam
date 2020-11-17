@@ -103,12 +103,6 @@ void mul4x4(int boolean_mLHSisRowMajor, double* mLHS, double* mRHS, double* mRes
                         vec_madd(mRHSrow21, vAuxLHS21, vec_mul(mRHSrow11, vAuxLHS11)),
                         vec_madd(mRHSrow41, vAuxLHS41, vec_mul(mRHSrow31, vAuxLHS31)) ),
                 0, mResult);
-/*
-        a última linha é o mesmo que
-        [a31b31 + a41b41 + a11b11 + a21b21,
-         a31b32 + a41b42 + a11b12 + a21b22]
-        ???
-*/
         vec_xst(vec_add(
                         vec_madd(mRHSrow22, vAuxLHS21, vec_mul(mRHSrow12, vAuxLHS11)),
                         vec_madd(mRHSrow42, vAuxLHS41, vec_mul(mRHSrow32, vAuxLHS31)) ),
