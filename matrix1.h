@@ -50,12 +50,9 @@ public:
         return out;
     }
 
-//    template<>
-//    SMatrix<Scalar, 4, 4> mul(const SMatrix<Scalar, 4, 4> rhs) // depois chama m3 = m1.mul<4, 4>(m2)
-};
+    template<>
+    SMatrix<Scalar, 4, 4> mul(const SMatrix<Scalar, 4, 4> rhs) // depois chama m3 = m1.mul<4, 4>(m2)
 
-template<int mdepth, int mcols>
-SMatrix<Scalar, rows, mdepth> mul(const SMatrix<Scalar, mdepth, mcols>& lhs, const SMatrix<Scalar, mdepth, mcols>& rhs)
 {
     SMatrix<Scalar, rows, mdepth> res;
     for(int i = 0; i < rows; i++)
