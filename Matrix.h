@@ -73,7 +73,7 @@ public:
 
 /* Small matrix */
 /**** FIXME operator() const problem *****/
-template<typename Scalar, int rows, int cols, int StorageOrder = RowMajor> // mudei para const int
+template<typename Scalar, int rows, int cols, int StorageOrder = RowMajor>
 class SMatrix
 {
 public:
