@@ -174,7 +174,7 @@ SMatrix<double, 12, 12> SMatrix<double, 12, 12, RowMajor>::mul<12, 12>(const SMa
 
     		// getting rows 1 and 2 of each column
     		// columns 1 and 2
-    		__vector double mLHSaux1 = vec_xl(0, mLHS);
+    		__vector double mLHSaux1 = vec_xl(0, m_data);
     		__vector double mLHSaux2 = vec_xl(0, mLHS + 12);
     		mLHScol11 = vec_perm(mLHSaux1, mLHSaux2, GETCOL1);
     		mLHScol21 = vec_perm(mLHSaux1, mLHSaux2, GETCOL2);
@@ -659,7 +659,7 @@ SMatrix<double, 12, 12> SMatrix<double, 12, 12, RowMajor>::mul<12, 12>(const SMa
     	__vector double vAuxLHS1212 = {mLHScol126[1], mLHScol126[1]};
 
     	// row 1 of mResult
-    	vec_xst(vec_madd(vAuxLHS121, mRHSrow121, vec_madd(vAuxLHS111, mRHSrow111, vec_madd(vAuxLHS101, mRHSrow101, vec_madd(vAuxLHS91, mRHSrow91, vec_madd(vAuxLHS81, mRHSrow81, vec_madd(vAuxLHS71, mRHSrow71, vec_madd(vAuxLHS61, mRHSrow61, vec_madd(vAuxLHS51, mRHSrow51, vec_madd(vAuxLHS41, mRHSrow41, vec_madd(vAuxLHS31, mRHSrow31, vec_madd(vAuxLHS21, mRHSrow21, vec_mul(vAuxLHS11, mRHSrow11)))))))))))), 0, mResult);
+    	vec_xst(vec_madd(vAuxLHS121, mRHSrow121, vec_madd(vAuxLHS111, mRHSrow111, vec_madd(vAuxLHS101, mRHSrow101, vec_madd(vAuxLHS91, mRHSrow91, vec_madd(vAuxLHS81, mRHSrow81, vec_madd(vAuxLHS71, mRHSrow71, vec_madd(vAuxLHS61, mRHSrow61, vec_madd(vAuxLHS51, mRHSrow51, vec_madd(vAuxLHS41, mRHSrow41, vec_madd(vAuxLHS31, mRHSrow31, vec_madd(vAuxLHS21, mRHSrow21, vec_mul(vAuxLHS11, mRHSrow11)))))))))))), 0, res.m_data);
     	vec_xst(vec_madd(vAuxLHS121, mRHSrow122, vec_madd(vAuxLHS111, mRHSrow112, vec_madd(vAuxLHS101, mRHSrow102, vec_madd(vAuxLHS91, mRHSrow92, vec_madd(vAuxLHS81, mRHSrow82, vec_madd(vAuxLHS71, mRHSrow72, vec_madd(vAuxLHS61, mRHSrow62, vec_madd(vAuxLHS51, mRHSrow52, vec_madd(vAuxLHS41, mRHSrow42, vec_madd(vAuxLHS31, mRHSrow32, vec_madd(vAuxLHS21, mRHSrow22, vec_mul(vAuxLHS11, mRHSrow12)))))))))))), 0, mResult + 2);
     	vec_xst(vec_madd(vAuxLHS121, mRHSrow123, vec_madd(vAuxLHS111, mRHSrow113, vec_madd(vAuxLHS101, mRHSrow103, vec_madd(vAuxLHS91, mRHSrow93, vec_madd(vAuxLHS81, mRHSrow83, vec_madd(vAuxLHS71, mRHSrow73, vec_madd(vAuxLHS61, mRHSrow63, vec_madd(vAuxLHS51, mRHSrow53, vec_madd(vAuxLHS41, mRHSrow43, vec_madd(vAuxLHS31, mRHSrow33, vec_madd(vAuxLHS21, mRHSrow23, vec_mul(vAuxLHS11, mRHSrow13)))))))))))), 0, mResult + 4);
     	vec_xst(vec_madd(vAuxLHS121, mRHSrow124, vec_madd(vAuxLHS111, mRHSrow114, vec_madd(vAuxLHS101, mRHSrow104, vec_madd(vAuxLHS91, mRHSrow94, vec_madd(vAuxLHS81, mRHSrow84, vec_madd(vAuxLHS71, mRHSrow74, vec_madd(vAuxLHS61, mRHSrow64, vec_madd(vAuxLHS51, mRHSrow54, vec_madd(vAuxLHS41, mRHSrow44, vec_madd(vAuxLHS31, mRHSrow34, vec_madd(vAuxLHS21, mRHSrow24, vec_mul(vAuxLHS11, mRHSrow14)))))))))))), 0, mResult + 6);

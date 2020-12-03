@@ -1,10 +1,9 @@
 #include <iostream>
-#include "Matrix_12inside.h"
+#include "Matrix12.h"
 
 int main() {
 
-	SMatrix<double, 12, 12, ColMajor> m1;
-	SMatrix<double, 12, 12> m2; 	
+	SMatrix<double, 12, 12> m1, m2;
 
 	for (int i = 0; i < 12*12; i++) {
 		m1.m_data[i] = i + 1;
