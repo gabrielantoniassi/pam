@@ -148,7 +148,7 @@ SMatrix<double, 12, 12> SMatrix<double, 12, 12, RowMajor>::mul<12, 12>(const SMa
 {
       SMatrix<double, 12, 12> res;
 
-      const double* mRHS
+      const double* mRHS;
 
       mRHS = rhs.m_data;
 
