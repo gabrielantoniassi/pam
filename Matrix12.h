@@ -147,12 +147,11 @@ template<>
 SMatrix<double, 12, 12> SMatrix<double, 12, 12, RowMajor>::mul<12, 12>(const SMatrix<double, 12, 12>& rhs)
 {
       SMatrix<double, 12, 12> res;
-      const double* mLHS;
-      const double* mRHS;
-      const double* mResult;
-      mLHS = m_data;
+
+      const double* mRHS
+
       mRHS = rhs.m_data;
-      mResult = res.m_data;
+
       	__vector double mLHScol11, mLHScol21, mLHScol31, mLHScol41, mLHScol51, mLHScol61, mLHScol71, mLHScol81, mLHScol91, mLHScol101, mLHScol111, mLHScol121,
     			mLHScol12, mLHScol22, mLHScol32, mLHScol42, mLHScol52, mLHScol62, mLHScol72, mLHScol82, mLHScol92, mLHScol102, mLHScol112, mLHScol122,
     			mLHScol13, mLHScol23, mLHScol33, mLHScol43, mLHScol53, mLHScol63, mLHScol73, mLHScol83, mLHScol93, mLHScol103, mLHScol113, mLHScol123,
@@ -175,222 +174,222 @@ SMatrix<double, 12, 12> SMatrix<double, 12, 12, RowMajor>::mul<12, 12>(const SMa
     		// getting rows 1 and 2 of each column
     		// columns 1 and 2
     		__vector double mLHSaux1 = vec_xl(0, m_data);
-    		__vector double mLHSaux2 = vec_xl(0, mLHS + 12);
+    		__vector double mLHSaux2 = vec_xl(0, m_data + 12);
     		mLHScol11 = vec_perm(mLHSaux1, mLHSaux2, GETCOL1);
     		mLHScol21 = vec_perm(mLHSaux1, mLHSaux2, GETCOL2);
 
     		// columns 3 and 4
-    		__vector double mLHSaux3 = vec_xl(0, mLHS + 2);
-    		__vector double mLHSaux4 = vec_xl(0, mLHS + 14);
+    		__vector double mLHSaux3 = vec_xl(0, m_data + 2);
+    		__vector double mLHSaux4 = vec_xl(0, m_data + 14);
     		mLHScol31 = vec_perm(mLHSaux3, mLHSaux4, GETCOL1);
     		mLHScol41 = vec_perm(mLHSaux3, mLHSaux4, GETCOL2);
 
     		// columns 5 and 6
-    		__vector double mLHSaux5 = vec_xl(0, mLHS + 4);
-    		__vector double mLHSaux6 = vec_xl(0, mLHS + 16);
+    		__vector double mLHSaux5 = vec_xl(0, m_data + 4);
+    		__vector double mLHSaux6 = vec_xl(0, m_data + 16);
     		mLHScol51 = vec_perm(mLHSaux5, mLHSaux6, GETCOL1);
     		mLHScol61 = vec_perm(mLHSaux5, mLHSaux6, GETCOL2);
 
     		// columns 7 and 8
-    		__vector double mLHSaux7 = vec_xl(0, mLHS + 6);
-    		__vector double mLHSaux8 = vec_xl(0, mLHS + 18);
+    		__vector double mLHSaux7 = vec_xl(0, m_data + 6);
+    		__vector double mLHSaux8 = vec_xl(0, m_data + 18);
     		mLHScol71 = vec_perm(mLHSaux7, mLHSaux8, GETCOL1);
     		mLHScol81 = vec_perm(mLHSaux7, mLHSaux8, GETCOL2);
 
     		// columns 9 and 10
-    		__vector double mLHSaux9 = vec_xl(0, mLHS + 8);
-    		__vector double mLHSaux10 = vec_xl(0, mLHS + 20);
+    		__vector double mLHSaux9 = vec_xl(0, m_data + 8);
+    		__vector double mLHSaux10 = vec_xl(0, m_data + 20);
     		mLHScol91 = vec_perm(mLHSaux9, mLHSaux10, GETCOL1);
     		mLHScol101 = vec_perm(mLHSaux9, mLHSaux10, GETCOL2);
 
     		// columns 11 and 12
-    		__vector double mLHSaux11 = vec_xl(0, mLHS + 10);
-    		__vector double mLHSaux12 = vec_xl(0, mLHS + 22);
+    		__vector double mLHSaux11 = vec_xl(0, m_data + 10);
+    		__vector double mLHSaux12 = vec_xl(0, m_data + 22);
     		mLHScol111 = vec_perm(mLHSaux11, mLHSaux12, GETCOL1);
     		mLHScol121 = vec_perm(mLHSaux11, mLHSaux12, GETCOL2);
 
     		// getting rows 3 and 4 of each column
     		// columns 1 and 2
-    		__vector double mLHSaux13 = vec_xl(0, mLHS + 24);
-    		__vector double mLHSaux14 = vec_xl(0, mLHS + 36);
+    		__vector double mLHSaux13 = vec_xl(0, m_data + 24);
+    		__vector double mLHSaux14 = vec_xl(0, m_data + 36);
     		mLHScol12 = vec_perm(mLHSaux13, mLHSaux14, GETCOL1);
     		mLHScol22 = vec_perm(mLHSaux13, mLHSaux14, GETCOL2);
 
     		// columns 3 and 4
-    		__vector double mLHSaux15 = vec_xl(0, mLHS + 26);
-    		__vector double mLHSaux16 = vec_xl(0, mLHS + 38);
+    		__vector double mLHSaux15 = vec_xl(0, m_data + 26);
+    		__vector double mLHSaux16 = vec_xl(0, m_data + 38);
     		mLHScol32 = vec_perm(mLHSaux15, mLHSaux16, GETCOL1);
     		mLHScol42 = vec_perm(mLHSaux15, mLHSaux16, GETCOL2);
 
     		// columns 5 and 6
-    		__vector double mLHSaux17 = vec_xl(0, mLHS + 28);
-    		__vector double mLHSaux18 = vec_xl(0, mLHS + 40);
+    		__vector double mLHSaux17 = vec_xl(0, m_data + 28);
+    		__vector double mLHSaux18 = vec_xl(0, m_data + 40);
     		mLHScol52 = vec_perm(mLHSaux17, mLHSaux18, GETCOL1);
     		mLHScol62 = vec_perm(mLHSaux17, mLHSaux18, GETCOL2);
 
     		// columns 7 and 8
-    		__vector double mLHSaux19 = vec_xl(0, mLHS + 30);
-    		__vector double mLHSaux20 = vec_xl(0, mLHS + 42);
+    		__vector double mLHSaux19 = vec_xl(0, m_data + 30);
+    		__vector double mLHSaux20 = vec_xl(0, m_data + 42);
     		mLHScol72 = vec_perm(mLHSaux19, mLHSaux20, GETCOL1);
     		mLHScol82 = vec_perm(mLHSaux19, mLHSaux20, GETCOL2);
 
     		// columns 9 and 10
-    		__vector double mLHSaux21 = vec_xl(0, mLHS + 32);
-    		__vector double mLHSaux22 = vec_xl(0, mLHS + 44);
+    		__vector double mLHSaux21 = vec_xl(0, m_data + 32);
+    		__vector double mLHSaux22 = vec_xl(0, m_data + 44);
     		mLHScol92 = vec_perm(mLHSaux21, mLHSaux22, GETCOL1);
     		mLHScol102 = vec_perm(mLHSaux21, mLHSaux22, GETCOL2);
 
     		// columns 11 and 12
-    		__vector double mLHSaux23 = vec_xl(0, mLHS + 34);
-    		__vector double mLHSaux24 = vec_xl(0, mLHS + 46);
+    		__vector double mLHSaux23 = vec_xl(0, m_data + 34);
+    		__vector double mLHSaux24 = vec_xl(0, m_data + 46);
     		mLHScol112 = vec_perm(mLHSaux23, mLHSaux24, GETCOL1);
     		mLHScol122 = vec_perm(mLHSaux23, mLHSaux24, GETCOL2);
 
     		// getting rows 5 and 6 of each column
     		// columns 1 and 2
-    		__vector double mLHSaux25 = vec_xl(0, mLHS + 48);
-    		__vector double mLHSaux26 = vec_xl(0, mLHS + 60);
+    		__vector double mLHSaux25 = vec_xl(0, m_data + 48);
+    		__vector double mLHSaux26 = vec_xl(0, m_data + 60);
     		mLHScol13 = vec_perm(mLHSaux25, mLHSaux26, GETCOL1);
     		mLHScol23 = vec_perm(mLHSaux25, mLHSaux26, GETCOL2);
 
     		// columns 3 and 4
-    		__vector double mLHSaux27 = vec_xl(0, mLHS + 50);
-    		__vector double mLHSaux28 = vec_xl(0, mLHS + 62);
+    		__vector double mLHSaux27 = vec_xl(0, m_data + 50);
+    		__vector double mLHSaux28 = vec_xl(0, m_data + 62);
     		mLHScol33 = vec_perm(mLHSaux27, mLHSaux28, GETCOL1);
     		mLHScol43 = vec_perm(mLHSaux27, mLHSaux28, GETCOL2);
 
     		// columns 5 and 6
-    		__vector double mLHSaux29 = vec_xl(0, mLHS + 52);
-    		__vector double mLHSaux30 = vec_xl(0, mLHS + 64);
+    		__vector double mLHSaux29 = vec_xl(0, m_data + 52);
+    		__vector double mLHSaux30 = vec_xl(0, m_data + 64);
     		mLHScol53 = vec_perm(mLHSaux29, mLHSaux30, GETCOL1);
     		mLHScol63 = vec_perm(mLHSaux29, mLHSaux30, GETCOL2);
 
     		// columns 7 and 8
-    		__vector double mLHSaux31 = vec_xl(0, mLHS + 54);
-    		__vector double mLHSaux32 = vec_xl(0, mLHS + 66);
+    		__vector double mLHSaux31 = vec_xl(0, m_data + 54);
+    		__vector double mLHSaux32 = vec_xl(0, m_data + 66);
     		mLHScol73 = vec_perm(mLHSaux31, mLHSaux32, GETCOL1);
     		mLHScol83 = vec_perm(mLHSaux31, mLHSaux32, GETCOL2);
 
     		// columns 9 and 10
-    		__vector double mLHSaux33 = vec_xl(0, mLHS + 56);
-    		__vector double mLHSaux34 = vec_xl(0, mLHS + 68);
+    		__vector double mLHSaux33 = vec_xl(0, m_data + 56);
+    		__vector double mLHSaux34 = vec_xl(0, m_data + 68);
     		mLHScol93 = vec_perm(mLHSaux33, mLHSaux34, GETCOL1);
     		mLHScol103 = vec_perm(mLHSaux33, mLHSaux34, GETCOL2);
 
     		// columns 11 and 12
-    		__vector double mLHSaux35 = vec_xl(0, mLHS + 58);
-    		__vector double mLHSaux36 = vec_xl(0, mLHS + 70);
+    		__vector double mLHSaux35 = vec_xl(0, m_data + 58);
+    		__vector double mLHSaux36 = vec_xl(0, m_data + 70);
     		mLHScol113 = vec_perm(mLHSaux35, mLHSaux36, GETCOL1);
     		mLHScol123 = vec_perm(mLHSaux35, mLHSaux36, GETCOL2);
 
     		// getting rows 7 and 8 of each column
     		// columns 1 and 2
-    		__vector double mLHSaux37 = vec_xl(0, mLHS + 72);
-    		__vector double mLHSaux38 = vec_xl(0, mLHS + 84);
+    		__vector double mLHSaux37 = vec_xl(0, m_data + 72);
+    		__vector double mLHSaux38 = vec_xl(0, m_data + 84);
     		mLHScol14 = vec_perm(mLHSaux37, mLHSaux38, GETCOL1);
     		mLHScol24 = vec_perm(mLHSaux37, mLHSaux38, GETCOL2);
 
     		// columns 3 and 4
-    		__vector double mLHSaux39 = vec_xl(0, mLHS + 74);
-    		__vector double mLHSaux40 = vec_xl(0, mLHS + 86);
+    		__vector double mLHSaux39 = vec_xl(0, m_data + 74);
+    		__vector double mLHSaux40 = vec_xl(0, m_data + 86);
     		mLHScol34 = vec_perm(mLHSaux39, mLHSaux40, GETCOL1);
     		mLHScol44 = vec_perm(mLHSaux39, mLHSaux40, GETCOL2);
 
     		// columns 5 and 6
-    		__vector double mLHSaux41 = vec_xl(0, mLHS + 76);
-    		__vector double mLHSaux42 = vec_xl(0, mLHS + 88);
+    		__vector double mLHSaux41 = vec_xl(0, m_data + 76);
+    		__vector double mLHSaux42 = vec_xl(0, m_data + 88);
     		mLHScol54 = vec_perm(mLHSaux41, mLHSaux42, GETCOL1);
     		mLHScol64 = vec_perm(mLHSaux41, mLHSaux42, GETCOL2);
 
     		// columns 7 and 8
-    		__vector double mLHSaux43 = vec_xl(0, mLHS + 78);
-    		__vector double mLHSaux44 = vec_xl(0, mLHS + 90);
+    		__vector double mLHSaux43 = vec_xl(0, m_data + 78);
+    		__vector double mLHSaux44 = vec_xl(0, m_data + 90);
     		mLHScol74 = vec_perm(mLHSaux43, mLHSaux44, GETCOL1);
     		mLHScol84 = vec_perm(mLHSaux43, mLHSaux44, GETCOL2);
 
     		// columns 9 and 10
-    		__vector double mLHSaux45 = vec_xl(0, mLHS + 80);
-    		__vector double mLHSaux46 = vec_xl(0, mLHS + 92);
+    		__vector double mLHSaux45 = vec_xl(0, m_data + 80);
+    		__vector double mLHSaux46 = vec_xl(0, m_data + 92);
     		mLHScol94 = vec_perm(mLHSaux45, mLHSaux46, GETCOL1);
     		mLHScol104 = vec_perm(mLHSaux45, mLHSaux46, GETCOL2);
 
     		// columns 11 and 12
-    		__vector double mLHSaux47 = vec_xl(0, mLHS + 82);
-    		__vector double mLHSaux48 = vec_xl(0, mLHS + 94);
+    		__vector double mLHSaux47 = vec_xl(0, m_data + 82);
+    		__vector double mLHSaux48 = vec_xl(0, m_data + 94);
     		mLHScol114 = vec_perm(mLHSaux47, mLHSaux48, GETCOL1);
     		mLHScol124 = vec_perm(mLHSaux47, mLHSaux48, GETCOL2);
 
     		// getting rows 9 and 10 of each column
     		// columns 1 and 2
-    		__vector double mLHSaux49 = vec_xl(0, mLHS + 96);
-    		__vector double mLHSaux50 = vec_xl(0, mLHS + 108);
+    		__vector double mLHSaux49 = vec_xl(0, m_data + 96);
+    		__vector double mLHSaux50 = vec_xl(0, m_data + 108);
     		mLHScol15 = vec_perm(mLHSaux49, mLHSaux50, GETCOL1);
     		mLHScol25 = vec_perm(mLHSaux49, mLHSaux50, GETCOL2);
 
     		// columns 3 and 4
-    		__vector double mLHSaux51 = vec_xl(0, mLHS + 98);
-    		__vector double mLHSaux52 = vec_xl(0, mLHS + 110);
+    		__vector double mLHSaux51 = vec_xl(0, m_data + 98);
+    		__vector double mLHSaux52 = vec_xl(0, m_data + 110);
     		mLHScol35 = vec_perm(mLHSaux51, mLHSaux52, GETCOL1);
     		mLHScol45 = vec_perm(mLHSaux51, mLHSaux52, GETCOL2);
 
     		// columns 5 and 6
-    		__vector double mLHSaux53 = vec_xl(0, mLHS + 100);
-    		__vector double mLHSaux54 = vec_xl(0, mLHS + 112);
+    		__vector double mLHSaux53 = vec_xl(0, m_data + 100);
+    		__vector double mLHSaux54 = vec_xl(0, m_data + 112);
     		mLHScol55 = vec_perm(mLHSaux53, mLHSaux54, GETCOL1);
     		mLHScol65 = vec_perm(mLHSaux53, mLHSaux54, GETCOL2);
 
     		// columns 7 and 8
-    		__vector double mLHSaux55 = vec_xl(0, mLHS + 102);
-    		__vector double mLHSaux56 = vec_xl(0, mLHS + 114);
+    		__vector double mLHSaux55 = vec_xl(0, m_data + 102);
+    		__vector double mLHSaux56 = vec_xl(0, m_data + 114);
     		mLHScol75 = vec_perm(mLHSaux55, mLHSaux56, GETCOL1);
     		mLHScol85 = vec_perm(mLHSaux55, mLHSaux56, GETCOL2);
 
     		// columns 9 and 10
-    		__vector double mLHSaux57 = vec_xl(0, mLHS + 104);
-    		__vector double mLHSaux58 = vec_xl(0, mLHS + 116);
+    		__vector double mLHSaux57 = vec_xl(0, m_data + 104);
+    		__vector double mLHSaux58 = vec_xl(0, m_data + 116);
     		mLHScol95 = vec_perm(mLHSaux57, mLHSaux58, GETCOL1);
     		mLHScol105 = vec_perm(mLHSaux57, mLHSaux58, GETCOL2);
 
     		// columns 11 and 12
-    		__vector double mLHSaux59 = vec_xl(0, mLHS + 106);
-    		__vector double mLHSaux60 = vec_xl(0, mLHS + 118);
+    		__vector double mLHSaux59 = vec_xl(0, m_data + 106);
+    		__vector double mLHSaux60 = vec_xl(0, m_data + 118);
     		mLHScol115 = vec_perm(mLHSaux59, mLHSaux60, GETCOL1);
     		mLHScol125 = vec_perm(mLHSaux59, mLHSaux60, GETCOL2);
 
     		// getting rows 11 and 12 of each column
     		// columns 1 and 2
-    		__vector double mLHSaux61 = vec_xl(0, mLHS + 120);
-    		__vector double mLHSaux62 = vec_xl(0, mLHS + 132);
+    		__vector double mLHSaux61 = vec_xl(0, m_data + 120);
+    		__vector double mLHSaux62 = vec_xl(0, m_data + 132);
     		mLHScol16 = vec_perm(mLHSaux61, mLHSaux62, GETCOL1);
     		mLHScol26 = vec_perm(mLHSaux61, mLHSaux62, GETCOL2);
 
     		// columns 3 and 4
-    		__vector double mLHSaux63 = vec_xl(0, mLHS + 122);
-    		__vector double mLHSaux64 = vec_xl(0, mLHS + 134);
+    		__vector double mLHSaux63 = vec_xl(0, m_data + 122);
+    		__vector double mLHSaux64 = vec_xl(0, m_data + 134);
     		mLHScol36 = vec_perm(mLHSaux63, mLHSaux64, GETCOL1);
     		mLHScol46 = vec_perm(mLHSaux63, mLHSaux64, GETCOL2);
 
     		// columns 5 and 6
-    		__vector double mLHSaux65 = vec_xl(0, mLHS + 124);
-    		__vector double mLHSaux66 = vec_xl(0, mLHS + 136);
+    		__vector double mLHSaux65 = vec_xl(0, m_data + 124);
+    		__vector double mLHSaux66 = vec_xl(0, m_data + 136);
     		mLHScol56 = vec_perm(mLHSaux65, mLHSaux66, GETCOL1);
     		mLHScol66 = vec_perm(mLHSaux65, mLHSaux66, GETCOL2);
 
     		// columns 7 and 8
-    		__vector double mLHSaux67 = vec_xl(0, mLHS + 126);
-    		__vector double mLHSaux68 = vec_xl(0, mLHS + 138);
+    		__vector double mLHSaux67 = vec_xl(0, m_data + 126);
+    		__vector double mLHSaux68 = vec_xl(0, m_data + 138);
     		mLHScol76 = vec_perm(mLHSaux67, mLHSaux68, GETCOL1);
     		mLHScol86 = vec_perm(mLHSaux67, mLHSaux68, GETCOL2);
 
     		// columns 9 and 10
-    		__vector double mLHSaux69 = vec_xl(0, mLHS + 128);
-    		__vector double mLHSaux70 = vec_xl(0, mLHS + 140);
+    		__vector double mLHSaux69 = vec_xl(0, m_data + 128);
+    		__vector double mLHSaux70 = vec_xl(0, m_data + 140);
     		mLHScol96 = vec_perm(mLHSaux69, mLHSaux70, GETCOL1);
     		mLHScol106 = vec_perm(mLHSaux69, mLHSaux70, GETCOL2);
 
     		// columns 11 and 12
-    		__vector double mLHSaux71 = vec_xl(0, mLHS + 130);
-    		__vector double mLHSaux72 = vec_xl(0, mLHS + 142);
+    		__vector double mLHSaux71 = vec_xl(0, m_data + 130);
+    		__vector double mLHSaux72 = vec_xl(0, m_data + 142);
     		mLHScol116 = vec_perm(mLHSaux71, mLHSaux72, GETCOL1);
     		mLHScol126 = vec_perm(mLHSaux71, mLHSaux72, GETCOL2);
 
@@ -785,100 +784,100 @@ SMatrix<double, 12, 12> SMatrix<double, 12, 12, ColMajor>::mul<12, 12>(const SMa
     			mRHSrow16, mRHSrow26, mRHSrow36, mRHSrow46, mRHSrow56, mRHSrow66, mRHSrow76, mRHSrow86, mRHSrow96, mRHSrow106, mRHSrow116, mRHSrow126;
 
 		// column 1
-		mLHScol11 = vec_xl(0, mLHS);
-		mLHScol12 = vec_xl(0, mLHS + 2);
-		mLHScol13 = vec_xl(0, mLHS + 4);
-		mLHScol14 = vec_xl(0, mLHS + 6);
-		mLHScol15 = vec_xl(0, mLHS + 8);
-		mLHScol16 = vec_xl(0, mLHS + 10);
+		mLHScol11 = vec_xl(0, m_data);
+		mLHScol12 = vec_xl(0, m_data + 2);
+		mLHScol13 = vec_xl(0, m_data + 4);
+		mLHScol14 = vec_xl(0, m_data + 6);
+		mLHScol15 = vec_xl(0, m_data + 8);
+		mLHScol16 = vec_xl(0, m_data + 10);
 
 		// column 2
-		mLHScol21 = vec_xl(0, mLHS + 12);
-		mLHScol22 = vec_xl(0, mLHS + 14);
-		mLHScol23 = vec_xl(0, mLHS + 16);
-		mLHScol24 = vec_xl(0, mLHS + 18);
-		mLHScol25 = vec_xl(0, mLHS + 20);
-		mLHScol26 = vec_xl(0, mLHS + 22);
+		mLHScol21 = vec_xl(0, m_data + 12);
+		mLHScol22 = vec_xl(0, m_data + 14);
+		mLHScol23 = vec_xl(0, m_data + 16);
+		mLHScol24 = vec_xl(0, m_data + 18);
+		mLHScol25 = vec_xl(0, m_data + 20);
+		mLHScol26 = vec_xl(0, m_data + 22);
 
 		// column 3
-		mLHScol31 = vec_xl(0, mLHS + 24);
-		mLHScol32 = vec_xl(0, mLHS + 26);
-		mLHScol33 = vec_xl(0, mLHS + 28);
-		mLHScol34 = vec_xl(0, mLHS + 30);
-		mLHScol35 = vec_xl(0, mLHS + 32);
-		mLHScol36 = vec_xl(0, mLHS + 34);
+		mLHScol31 = vec_xl(0, m_data + 24);
+		mLHScol32 = vec_xl(0, m_data + 26);
+		mLHScol33 = vec_xl(0, m_data + 28);
+		mLHScol34 = vec_xl(0, m_data + 30);
+		mLHScol35 = vec_xl(0, m_data + 32);
+		mLHScol36 = vec_xl(0, m_data + 34);
 
 		// column 4
-		mLHScol41 = vec_xl(0, mLHS + 36);
-		mLHScol42 = vec_xl(0, mLHS + 38);
-		mLHScol43 = vec_xl(0, mLHS + 40);
-		mLHScol44 = vec_xl(0, mLHS + 42);
-		mLHScol45 = vec_xl(0, mLHS + 44);
-		mLHScol46 = vec_xl(0, mLHS + 46);
+		mLHScol41 = vec_xl(0, m_data + 36);
+		mLHScol42 = vec_xl(0, m_data + 38);
+		mLHScol43 = vec_xl(0, m_data + 40);
+		mLHScol44 = vec_xl(0, m_data + 42);
+		mLHScol45 = vec_xl(0, m_data + 44);
+		mLHScol46 = vec_xl(0, m_data + 46);
 
 		// column 5
-		mLHScol51 = vec_xl(0, mLHS + 48);
-		mLHScol52 = vec_xl(0, mLHS + 50);
-		mLHScol53 = vec_xl(0, mLHS + 52);
-		mLHScol54 = vec_xl(0, mLHS + 54);
-		mLHScol55 = vec_xl(0, mLHS + 56);
-		mLHScol56 = vec_xl(0, mLHS + 58);
+		mLHScol51 = vec_xl(0, m_data + 48);
+		mLHScol52 = vec_xl(0, m_data + 50);
+		mLHScol53 = vec_xl(0, m_data + 52);
+		mLHScol54 = vec_xl(0, m_data + 54);
+		mLHScol55 = vec_xl(0, m_data + 56);
+		mLHScol56 = vec_xl(0, m_data + 58);
 
 		// column 6
-		mLHScol61 = vec_xl(0, mLHS + 60);
-		mLHScol62 = vec_xl(0, mLHS + 62);
-		mLHScol63 = vec_xl(0, mLHS + 64);
-		mLHScol64 = vec_xl(0, mLHS + 66);
-		mLHScol65 = vec_xl(0, mLHS + 68);
-		mLHScol66 = vec_xl(0, mLHS + 70);
+		mLHScol61 = vec_xl(0, m_data + 60);
+		mLHScol62 = vec_xl(0, m_data + 62);
+		mLHScol63 = vec_xl(0, m_data + 64);
+		mLHScol64 = vec_xl(0, m_data + 66);
+		mLHScol65 = vec_xl(0, m_data + 68);
+		mLHScol66 = vec_xl(0, m_data + 70);
 
 		// column 7
-		mLHScol71 = vec_xl(0, mLHS + 72);
-		mLHScol72 = vec_xl(0, mLHS + 74);
-		mLHScol73 = vec_xl(0, mLHS + 76);
-		mLHScol74 = vec_xl(0, mLHS + 78);
-		mLHScol75 = vec_xl(0, mLHS + 80);
-		mLHScol76 = vec_xl(0, mLHS + 82);
+		mLHScol71 = vec_xl(0, m_data + 72);
+		mLHScol72 = vec_xl(0, m_data + 74);
+		mLHScol73 = vec_xl(0, m_data + 76);
+		mLHScol74 = vec_xl(0, m_data + 78);
+		mLHScol75 = vec_xl(0, m_data + 80);
+		mLHScol76 = vec_xl(0, m_data + 82);
 
 		// column 8
-		mLHScol81 = vec_xl(0, mLHS + 84);
-		mLHScol82 = vec_xl(0, mLHS + 86);
-		mLHScol83 = vec_xl(0, mLHS + 88);
-		mLHScol84 = vec_xl(0, mLHS + 90);
-		mLHScol85 = vec_xl(0, mLHS + 92);
-		mLHScol86 = vec_xl(0, mLHS + 94);
+		mLHScol81 = vec_xl(0, m_data + 84);
+		mLHScol82 = vec_xl(0, m_data + 86);
+		mLHScol83 = vec_xl(0, m_data + 88);
+		mLHScol84 = vec_xl(0, m_data + 90);
+		mLHScol85 = vec_xl(0, m_data + 92);
+		mLHScol86 = vec_xl(0, m_data + 94);
 
 		// column 9
-		mLHScol91 = vec_xl(0, mLHS + 96);
-		mLHScol92 = vec_xl(0, mLHS + 98);
-		mLHScol93 = vec_xl(0, mLHS + 100);
-		mLHScol94 = vec_xl(0, mLHS + 102);
-		mLHScol95 = vec_xl(0, mLHS + 104);
-		mLHScol96 = vec_xl(0, mLHS + 106);
+		mLHScol91 = vec_xl(0, m_data + 96);
+		mLHScol92 = vec_xl(0, m_data + 98);
+		mLHScol93 = vec_xl(0, m_data + 100);
+		mLHScol94 = vec_xl(0, m_data + 102);
+		mLHScol95 = vec_xl(0, m_data + 104);
+		mLHScol96 = vec_xl(0, m_data + 106);
 
 		// column 10
-		mLHScol101 = vec_xl(0, mLHS + 108);
-		mLHScol102 = vec_xl(0, mLHS + 110);
-		mLHScol103 = vec_xl(0, mLHS + 112);
-		mLHScol104 = vec_xl(0, mLHS + 114);
-		mLHScol105 = vec_xl(0, mLHS + 116);
-		mLHScol106 = vec_xl(0, mLHS + 118);
+		mLHScol101 = vec_xl(0, m_data + 108);
+		mLHScol102 = vec_xl(0, m_data + 110);
+		mLHScol103 = vec_xl(0, m_data + 112);
+		mLHScol104 = vec_xl(0, m_data + 114);
+		mLHScol105 = vec_xl(0, m_data + 116);
+		mLHScol106 = vec_xl(0, m_data + 118);
 
 		// column 11
-		mLHScol111 = vec_xl(0, mLHS + 120);
-		mLHScol112 = vec_xl(0, mLHS + 122);
-		mLHScol113 = vec_xl(0, mLHS + 124);
-		mLHScol114 = vec_xl(0, mLHS + 126);
-		mLHScol115 = vec_xl(0, mLHS + 128);
-		mLHScol116 = vec_xl(0, mLHS + 130);
+		mLHScol111 = vec_xl(0, m_data + 120);
+		mLHScol112 = vec_xl(0, m_data + 122);
+		mLHScol113 = vec_xl(0, m_data + 124);
+		mLHScol114 = vec_xl(0, m_data + 126);
+		mLHScol115 = vec_xl(0, m_data + 128);
+		mLHScol116 = vec_xl(0, m_data + 130);
 
 		// column 12
-		mLHScol121 = vec_xl(0, mLHS + 132);
-		mLHScol122 = vec_xl(0, mLHS + 134);
-		mLHScol123 = vec_xl(0, mLHS + 136);
-		mLHScol124 = vec_xl(0, mLHS + 138);
-		mLHScol125 = vec_xl(0, mLHS + 140);
-		mLHScol126 = vec_xl(0, mLHS + 142);
+		mLHScol121 = vec_xl(0, m_data + 132);
+		mLHScol122 = vec_xl(0, m_data + 134);
+		mLHScol123 = vec_xl(0, m_data + 136);
+		mLHScol124 = vec_xl(0, m_data + 138);
+		mLHScol125 = vec_xl(0, m_data + 140);
+		mLHScol126 = vec_xl(0, m_data + 142);
 
     	// column 1
     	mRHSrow11 = vec_xl(0, mRHS);
