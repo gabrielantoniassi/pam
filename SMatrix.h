@@ -54,42 +54,6 @@ public:
     }
 };
 
-template<typename Scalar, int rows, int cols, int StorageOrder>
-template<int mdepth, int mcols>
-SMatrix<Scalar, rows, mdepth> SMatrix<Scalar, rows, cols, StorageOrder>::mul(const SMatrix<Scalar, mdepth, mcols>& rhs)
-{
-	SMatrix<Scalar, rows, mdepth> res;
-    for(int i = 0; i < rows; i++)
-    {
-        for(int j = 0; j < mcols; j++)
-        {
-            for(int k = 0; k < mdepth; k++)
-            {
-                res.m_data[StorageOrder == RowMajor ? i*mdepth + j : j*rows + i] += m_data[StorageOrder == RowMajor ? i*mdepth + k : k*rows + i]*rhs.m_data[StorageOrder == RowMajor ? k*mcols + j : j*mdepth + k];
-            }
-        }
-    }
-    return res;
-}
-
-template<>
-template<>
-SMatrix<double, 12, 12> SMatrix<double, 12, 12, RowMajor>::mul<12, 12>(const SMatrix<double, 12, 12>& rhs)
-{
-	SMatrix<double, 12, 12> res;
-	mul4x4RowMajor((double*)this->m_data, (double*)rhs.m_data, (double*)res.m_data);
-	return res;
-}
-
-template<>
-template<>
-SMatrix<double, 12, 12> SMatrix<double, 12, 12, ColMajor>::mul<12, 12>(const SMatrix<double, 12, 12>& rhs)
-{
-	SMatrix<double, 12, 12> res;
-	mul4x4ColMajor((double*)this->m_data, (double*)rhs.m_data, (double*)res.m_data);
-	return res;
-}
-
 inline void mul12x12RowMajor(double* mLHS, double* mRHS, double* mResult) {
 
 	__vector double mLHScol11, mLHScol21, mLHScol31, mLHScol41, mLHScol51, mLHScol61, mLHScol71, mLHScol81, mLHScol91, mLHScol101, mLHScol111, mLHScol121,
@@ -1032,4 +996,40 @@ inline void mul12x12ColMajor(double* mLHS, double* mRHS, double* mResult) {
 	vec_xst(vec_madd(vAuxLHS1212, mRHSrow124, vec_madd(vAuxLHS1112, mRHSrow114, vec_madd(vAuxLHS1012, mRHSrow104, vec_madd(vAuxLHS912, mRHSrow94, vec_madd(vAuxLHS812, mRHSrow84, vec_madd(vAuxLHS712, mRHSrow74, vec_madd(vAuxLHS612, mRHSrow64, vec_madd(vAuxLHS512, mRHSrow54, vec_madd(vAuxLHS412, mRHSrow44, vec_madd(vAuxLHS312, mRHSrow34, vec_madd(vAuxLHS212, mRHSrow24, vec_mul(vAuxLHS0112, mRHSrow14)))))))))))), 0, mResult + 138);
 	vec_xst(vec_madd(vAuxLHS1212, mRHSrow125, vec_madd(vAuxLHS1112, mRHSrow115, vec_madd(vAuxLHS1012, mRHSrow105, vec_madd(vAuxLHS912, mRHSrow95, vec_madd(vAuxLHS812, mRHSrow85, vec_madd(vAuxLHS712, mRHSrow75, vec_madd(vAuxLHS612, mRHSrow65, vec_madd(vAuxLHS512, mRHSrow55, vec_madd(vAuxLHS412, mRHSrow45, vec_madd(vAuxLHS312, mRHSrow35, vec_madd(vAuxLHS212, mRHSrow25, vec_mul(vAuxLHS0112, mRHSrow15)))))))))))), 0, mResult + 140);
 	vec_xst(vec_madd(vAuxLHS1212, mRHSrow126, vec_madd(vAuxLHS1112, mRHSrow116, vec_madd(vAuxLHS1012, mRHSrow106, vec_madd(vAuxLHS912, mRHSrow96, vec_madd(vAuxLHS812, mRHSrow86, vec_madd(vAuxLHS712, mRHSrow76, vec_madd(vAuxLHS612, mRHSrow66, vec_madd(vAuxLHS512, mRHSrow56, vec_madd(vAuxLHS412, mRHSrow46, vec_madd(vAuxLHS312, mRHSrow36, vec_madd(vAuxLHS212, mRHSrow26, vec_mul(vAuxLHS0112, mRHSrow16)))))))))))), 0, mResult + 142);
+}
+
+template<typename Scalar, int rows, int cols, int StorageOrder>
+template<int mdepth, int mcols>
+SMatrix<Scalar, rows, mdepth> SMatrix<Scalar, rows, cols, StorageOrder>::mul(const SMatrix<Scalar, mdepth, mcols>& rhs)
+{
+	SMatrix<Scalar, rows, mdepth> res;
+    for(int i = 0; i < rows; i++)
+    {
+        for(int j = 0; j < mcols; j++)
+        {
+            for(int k = 0; k < mdepth; k++)
+            {
+                res.m_data[StorageOrder == RowMajor ? i*mdepth + j : j*rows + i] += m_data[StorageOrder == RowMajor ? i*mdepth + k : k*rows + i]*rhs.m_data[StorageOrder == RowMajor ? k*mcols + j : j*mdepth + k];
+            }
+        }
+    }
+    return res;
+}
+
+template<>
+template<>
+SMatrix<double, 12, 12> SMatrix<double, 12, 12, RowMajor>::mul<12, 12>(const SMatrix<double, 12, 12>& rhs)
+{
+	SMatrix<double, 12, 12> res;
+	mul4x4RowMajor((double*)this->m_data, (double*)rhs.m_data, (double*)res.m_data);
+	return res;
+}
+
+template<>
+template<>
+SMatrix<double, 12, 12> SMatrix<double, 12, 12, ColMajor>::mul<12, 12>(const SMatrix<double, 12, 12>& rhs)
+{
+	SMatrix<double, 12, 12> res;
+	mul4x4ColMajor((double*)this->m_data, (double*)rhs.m_data, (double*)res.m_data);
+	return res;
 }
