@@ -3,7 +3,7 @@
 
 int main() {
 
-	SMatrix<double, 12, 12, ColMajor> m1;
+	SMatrix<double, 12, 12, RowMajor> m1;
 	SMatrix<double, 12, 12> m2;
 
 	for (int i = 0; i < 12*12; i++) {

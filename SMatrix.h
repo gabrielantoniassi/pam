@@ -1021,7 +1021,7 @@ template<>
 SMatrix<double, 12, 12> SMatrix<double, 12, 12, RowMajor>::mul<12, 12>(const SMatrix<double, 12, 12>& rhs)
 {
 	SMatrix<double, 12, 12> res;
-	mul4x4RowMajor((double*)this->m_data, (double*)rhs.m_data, (double*)res.m_data);
+	mul12x12RowMajor((double*)this->m_data, (double*)rhs.m_data, (double*)res.m_data);
 	return res;
 }
 
@@ -1030,6 +1030,6 @@ template<>
 SMatrix<double, 12, 12> SMatrix<double, 12, 12, ColMajor>::mul<12, 12>(const SMatrix<double, 12, 12>& rhs)
 {
 	SMatrix<double, 12, 12> res;
-	mul4x4ColMajor((double*)this->m_data, (double*)rhs.m_data, (double*)res.m_data);
+	mul12x12ColMajor((double*)this->m_data, (double*)rhs.m_data, (double*)res.m_data);
 	return res;
 }
