@@ -56,12 +56,12 @@ public:
 
 inline void mul12x12RowMajor(double* mLHS, double* mRHS, double* mResult) {
 
-	__vector double mLHScol11, mLHScol21, mLHScol31, mLHScol41, mLHScol51, mLHScol61, mLHScol71, mLHScol81, mLHScol91, mLHScol101, mLHScol111, mLHScol121,
-					mLHScol12, mLHScol22, mLHScol32, mLHScol42, mLHScol52, mLHScol62, mLHScol72, mLHScol82, mLHScol92, mLHScol102, mLHScol112, mLHScol122,
-					mLHScol13, mLHScol23, mLHScol33, mLHScol43, mLHScol53, mLHScol63, mLHScol73, mLHScol83, mLHScol93, mLHScol103, mLHScol113, mLHScol123,
-					mLHScol14, mLHScol24, mLHScol34, mLHScol44, mLHScol54, mLHScol64, mLHScol74, mLHScol84, mLHScol94, mLHScol104, mLHScol114, mLHScol124,
-					mLHScol15, mLHScol25, mLHScol35, mLHScol45, mLHScol55, mLHScol65, mLHScol75, mLHScol85, mLHScol95, mLHScol105, mLHScol115, mLHScol125,
-					mLHScol16, mLHScol26, mLHScol36, mLHScol46, mLHScol56, mLHScol66, mLHScol76, mLHScol86, mLHScol96, mLHScol106, mLHScol116, mLHScol126,
+	__vector double mLHSrow11, mLHSrow21, mLHSrow31, mLHSrow41, mLHSrow51, mLHSrow61, mLHSrow71, mLHSrow81, mLHSrow91, mLHSrow101, mLHSrow111, mLHSrow121,
+					mLHSrow12, mLHSrow22, mLHSrow32, mLHSrow42, mLHSrow52, mLHSrow62, mLHSrow72, mLHSrow82, mLHSrow92, mLHSrow102, mLHSrow112, mLHSrow122,
+					mLHSrow13, mLHSrow23, mLHSrow33, mLHSrow43, mLHSrow53, mLHSrow63, mLHSrow73, mLHSrow83, mLHSrow93, mLHSrow103, mLHSrow113, mLHSrow123,
+					mLHSrow14, mLHSrow24, mLHSrow34, mLHSrow44, mLHSrow54, mLHSrow64, mLHSrow74, mLHSrow84, mLHSrow94, mLHSrow104, mLHSrow114, mLHSrow124,
+					mLHSrow15, mLHSrow25, mLHSrow35, mLHSrow45, mLHSrow55, mLHSrow65, mLHSrow75, mLHSrow85, mLHSrow95, mLHSrow105, mLHSrow115, mLHSrow125,
+					mLHSrow16, mLHSrow26, mLHSrow36, mLHSrow46, mLHSrow56, mLHSrow66, mLHSrow76, mLHSrow86, mLHSrow96, mLHSrow106, mLHSrow116, mLHSrow126,
 					mRHSrow11, mRHSrow21, mRHSrow31, mRHSrow41, mRHSrow51, mRHSrow61, mRHSrow71, mRHSrow81, mRHSrow91, mRHSrow101, mRHSrow111, mRHSrow121,
 					mRHSrow12, mRHSrow22, mRHSrow32, mRHSrow42, mRHSrow52, mRHSrow62, mRHSrow72, mRHSrow82, mRHSrow92, mRHSrow102, mRHSrow112, mRHSrow122,
 					mRHSrow13, mRHSrow23, mRHSrow33, mRHSrow43, mRHSrow53, mRHSrow63, mRHSrow73, mRHSrow83, mRHSrow93, mRHSrow103, mRHSrow113, mRHSrow123,
