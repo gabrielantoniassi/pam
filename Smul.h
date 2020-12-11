@@ -231,7 +231,7 @@ inline void mul9x9RowMajor(const double* mLHS, const double* mRHS, double* const
     mLHSrow12 = vec_xl(0, mLHS + 2);
     mLHSrow13 = vec_xl(0, mLHS + 4);
     mLHSrow14 = vec_xl(0, mLHS + 6);
-    mLHSrow15[0] = mLHS[8]
+    mLHSrow15[0] = mLHS[8];
     // mLHSrow15[1] = 0
 
     // row 2
@@ -239,7 +239,7 @@ inline void mul9x9RowMajor(const double* mLHS, const double* mRHS, double* const
     mLHSrow22 = vec_xl(0, mLHS + 11);
     mLHSrow23 = vec_xl(0, mLHS + 13);
     mLHSrow24 = vec_xl(0, mLHS + 15);
-    mLHSrow25[0] = mLHS[17]
+    mLHSrow25[0] = mLHS[17];
     // mLHSrow25[1] = 0
 
     // row 3
@@ -247,7 +247,7 @@ inline void mul9x9RowMajor(const double* mLHS, const double* mRHS, double* const
     mLHSrow32 = vec_xl(0, mLHS + 20);
     mLHSrow33 = vec_xl(0, mLHS + 22);
     mLHSrow34 = vec_xl(0, mLHS + 24);
-    mLHSrow35[0] = mLHS[26]
+    mLHSrow35[0] = mLHS[26];
     // mLHSrow35[1] = 0
 
     // row 4
@@ -255,7 +255,7 @@ inline void mul9x9RowMajor(const double* mLHS, const double* mRHS, double* const
     mLHSrow42 = vec_xl(0, mLHS + 29);
     mLHSrow43 = vec_xl(0, mLHS + 31);
     mLHSrow44 = vec_xl(0, mLHS + 33);
-    mLHSrow45[0] = mLHS[35]
+    mLHSrow45[0] = mLHS[35];
     // mLHSrow45[1] = 0
 
     // row 5
@@ -263,7 +263,7 @@ inline void mul9x9RowMajor(const double* mLHS, const double* mRHS, double* const
     mLHSrow52 = vec_xl(0, mLHS + 38);
     mLHSrow53 = vec_xl(0, mLHS + 40);
     mLHSrow54 = vec_xl(0, mLHS + 42);
-    mLHSrow55[0] = mLHS[44]
+    mLHSrow55[0] = mLHS[44];
     // mLHSrow55[1] = 0
 
     // row 6
@@ -271,7 +271,7 @@ inline void mul9x9RowMajor(const double* mLHS, const double* mRHS, double* const
     mLHSrow62 = vec_xl(0, mLHS + 47);
     mLHSrow63 = vec_xl(0, mLHS + 49);
     mLHSrow64 = vec_xl(0, mLHS + 51);
-    mLHSrow65[0] = mLHS[53]
+    mLHSrow65[0] = mLHS[53];
     // mLHSrow65[1] = 0
 
     // row 7
@@ -279,7 +279,7 @@ inline void mul9x9RowMajor(const double* mLHS, const double* mRHS, double* const
     mLHSrow72 = vec_xl(0, mLHS + 56);
     mLHSrow73 = vec_xl(0, mLHS + 58);
     mLHSrow74 = vec_xl(0, mLHS + 60);
-    mLHSrow75[0] = mLHS[62]
+    mLHSrow75[0] = mLHS[62];
     // mLHSrow75[1] = 0
 
     // row 8
@@ -287,7 +287,7 @@ inline void mul9x9RowMajor(const double* mLHS, const double* mRHS, double* const
     mLHSrow82 = vec_xl(0, mLHS + 65);
     mLHSrow83 = vec_xl(0, mLHS + 67);
     mLHSrow84 = vec_xl(0, mLHS + 69);
-    mLHSrow85[0] = mLHS[71]
+    mLHSrow85[0] = mLHS[71];
     // mLHSrow85[1] = 0
 
     // row 9
@@ -295,7 +295,7 @@ inline void mul9x9RowMajor(const double* mLHS, const double* mRHS, double* const
     mLHSrow92 = vec_xl(0, mLHS + 74);
     mLHSrow93 = vec_xl(0, mLHS + 76);
     mLHSrow94 = vec_xl(0, mLHS + 78);
-    mLHSrow95[0] = mLHS[80]
+    mLHSrow95[0] = mLHS[80];
     // mLHSrow95[1] = 0
 
     // column 1
