@@ -4,17 +4,13 @@
 
 int main()
 {
-  //2x2
-  SMatrix<int, 2, 2, RowMajor> sm1(1), sm2(2);
-  std::cout << sm1 << std::endl;
-  std::cout << sm2 << std::endl;
-  std::cout << sm1.mul<2>(sm2) << std::endl;
-
   //4x4
   SMatrix<double, 4, 4, RowMajor> sm1(10), sm2(20);
   std::cout << sm1 << std::endl;
   std::cout << sm2 << std::endl;
   std::cout << sm1.mul<4>(sm2) << std::endl;
+  std::cout << sm1.mult<4>(sm2) << std::endl;
+
 
   SMatrix<double, 4, 4, ColMajor> sm3(30);
   SMatrix<double, 4, 4, RowMajor> sm4(40);
