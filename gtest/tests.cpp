@@ -3,9 +3,9 @@
 using namespace std;
 
 TEST(mul, oneTwo) {
-	SMatrix<double, 4, 4> m1(1), m2(2);
+	const int tam = 2;
+	SMatrix<double, tam, tam> m1(1), m2(2), mref;
 
-	SMatrix<double, 4, 4> mref;
 	for(int i = 0; i < m1.m_rows; i++)
 	{
 		for(int j = 0; j < m2.m_cols; j++)
@@ -17,14 +17,14 @@ TEST(mul, oneTwo) {
 		}
 	}
 
-	SMatrix<double, 4, 4> mres = m1.mul<4>(m2);
+	SMatrix<double, tam, tam> mres = m1.mul<tam>(m2);
 
 	cout << m1 << endl;
 	cout << m2 << endl;
 	cout << mref << endl;
 	cout << mres << endl;
 
-	for (int i = 0; i < 16; i++)
+	for (int i = 0; i < tam*tam; i++)
 		EXPECT_EQ(mref.m_data[i], mres.m_data[i]);
 
 }
