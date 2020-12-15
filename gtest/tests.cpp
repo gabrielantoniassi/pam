@@ -19,7 +19,7 @@ TEST(mul, oneTwo) {
 	SMatrix<double, 4, 4> mres = m1.mul<4>(m2);
 
 	for (int i = 0; i < 16; i++)
-		EXPECT_EQ(mref[i], mres.m_data[i]);
+		EXPECT_EQ(mref.m_data[i], mres.m_data[i]);
 
 }
 
