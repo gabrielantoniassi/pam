@@ -11,7 +11,7 @@ TEST(mul, oneTwo) {
 		{
 			for(int k = 0; k < m1.m_cols; k++)
 		    {
-		        mref.m_data[mref.storage_order == RowMajor ? i*m2.m_cols + j : j*m1.m_rows + i] += m1.m_data[m1.storage_order == RowMajor ? i*m1.m_cols + k : k*m1.m_rows + i]*m2.m_data[rhs.storage_order == RowMajor ? k*m2.m_cols + j : j*m1.m_cols + k];
+		        mref.m_data[mref.storage_order == RowMajor ? i*m2.m_cols + j : j*m1.m_rows + i] += m1.m_data[m1.storage_order == RowMajor ? i*m1.m_cols + k : k*m1.m_rows + i]*m2.m_data[m2.storage_order == RowMajor ? k*m2.m_cols + j : j*m1.m_cols + k];
 			}
 		}
 	}
