@@ -1,5 +1,6 @@
 #include "SMatrix.h"
 #include <gtest/gtest.h>
+using namespace std;
 
 TEST(mul, oneTwo) {
 	SMatrix<double, 4, 4> m1(1), m2(2);
@@ -17,6 +18,11 @@ TEST(mul, oneTwo) {
 	}
 
 	SMatrix<double, 4, 4> mres = m1.mul<4>(m2);
+
+	cout << m1 << endl;
+	cout << m2 << endl;
+	cout << mref << endl;
+	cout << mres << endl;
 
 	for (int i = 0; i < 16; i++)
 		EXPECT_EQ(mref.m_data[i], mres.m_data[i]);
