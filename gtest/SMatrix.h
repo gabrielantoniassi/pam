@@ -44,10 +44,6 @@ public:
     template<int mRHS_cols>
     SMatrix<Scalar, rows, mRHS_cols> mul(const SMatrix<Scalar, cols, mRHS_cols>& rhs);
 
-    template<int mRHS_cols>
-    SMatrix<Scalar, rows, mRHS_cols> mulRef(const SMatrix<Scalar, cols, mRHS_cols>& rhs);
-
-
     //====================================================================================================
     friend std::ostream& operator<<(std::ostream& out, const SMatrix& m)
     {
@@ -62,25 +58,6 @@ public:
         return out;
     }
 };
-
-template<typename Scalar, int rows, int cols, int StorageOrder>
-template<int mRHS_cols>
-SMatrix<Scalar, rows, mRHS_cols> SMatrix<Scalar, rows, cols, StorageOrder>::mulRef(const SMatrix<Scalar, cols, mRHS_cols>& rhs, order=RowMajor)
-{
-    SMatrix<Scalar, rows, mRHS_cols, order> res;    //if RowMajor: lhs(this): #rows = rows, #columns = cols
-    for(int i = 0; i < rows; i++)            //             rhs:       #rows = cols, #columns = mRHS_cols
-    {                                        //             res:       #rows = rows, #columns = mRHS_cols
-        for(int j = 0; j < mRHS_cols; j++)
-        {
-            for(int k = 0; k < cols; k++)
-            {
-                res.m_data[order == RowMajor ? i*mRHS_cols + j : j*rows + i] += m_data[StorageOrder == RowMajor ? i*cols + k : k*rows + i]*rhs.m_data[rhs.storage_order == RowMajor ? k*mRHS_cols + j : j*cols + k];
-            }
-        }
-    }
-    return res;
-}
-
 
 // Template definition - multiplication of matrices
 //====================================================================================================
