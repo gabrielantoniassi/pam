@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ubuntu/gtest/SMatrix.h
+/home/ubuntu/pam/gtest/SMatrix.h
 iostream
 -
 stdio.h
@@ -14,9 +14,9 @@ stdio.h
 altivec.h
 -
 Smul.h
-/home/ubuntu/gtest/Smul.h
+/home/ubuntu/pam/gtest/Smul.h
 
-/home/ubuntu/gtest/Smul.h
+/home/ubuntu/pam/gtest/Smul.h
 iostream
 -
 stdio.h
@@ -24,9 +24,9 @@ stdio.h
 altivec.h
 -
 
-/home/ubuntu/gtest/tests.cpp
+/home/ubuntu/pam/gtest/tests.cpp
 SMatrix.h
-/home/ubuntu/gtest/SMatrix.h
+/home/ubuntu/pam/gtest/SMatrix.h
 gtest/gtest.h
 -
 

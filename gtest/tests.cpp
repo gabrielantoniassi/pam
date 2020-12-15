@@ -3,8 +3,8 @@
 using namespace std;
 
 TEST(mul, oneTwo) {
-	const int tam = 2;
-	SMatrix<double, tam, tam> m1(1), m2(2), mref;
+	const int tam = 6;
+	SMatrix<double, tam, tam> m1(1), m2(2), mref(0);
 
 	for(int i = 0; i < m1.m_rows; i++)
 	{

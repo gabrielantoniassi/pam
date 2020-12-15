@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/gtest
+CMAKE_SOURCE_DIR = /home/ubuntu/pam/gtest
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/gtest
+CMAKE_BINARY_DIR = /home/ubuntu/pam/gtest
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ clean: CMakeFiles/runTests.dir/clean
 CMakeFiles/runTests.dir/all:
 	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/depend
 	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ubuntu/gtest/CMakeFiles --progress-num=1,2 "Built target runTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ubuntu/pam/gtest/CMakeFiles --progress-num=1,2 "Built target runTests"
 .PHONY : CMakeFiles/runTests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/runTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/gtest/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/pam/gtest/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/runTests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/gtest/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/pam/gtest/CMakeFiles 0
 .PHONY : CMakeFiles/runTests.dir/rule
 
 # Convenience name for target.
