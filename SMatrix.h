@@ -5,8 +5,7 @@
 #include <stdio.h>
 #include <altivec.h>
 #include "Smul.h"
-
-enum EStorageOrder : int { RowMajor, ColMajor };
+#include "EStorageOrder.h"
 
 template<typename Scalar, int rows, int cols, int StorageOrder = RowMajor>
 class SMatrix
@@ -39,10 +38,16 @@ public:
         return m_data[StorageOrder == RowMajor ? i*cols + j : j*rows + i];
     }
 
+    void operator=(const SMatrix& m)
+    {
+	for (int i = 0; i < m_rows*m_cols; i++)
+		m_data[i] = m.m_data[i];
+    }
+
     // Template declaration - multiplication of matrices  // ONE MUST DEFINE THE TEMPLATE FUNCTION OUTSIDE THE CLASS TO ALLOW SPECIALIZATION (but must declare it inside the class)
     //====================================================================================================
-    template<int mRHS_cols>
-    SMatrix<Scalar, rows, mRHS_cols> mul(const SMatrix<Scalar, cols, mRHS_cols>& rhs);
+    template<int mRHS_cols, int outOrder = RowMajor>
+    SMatrix<Scalar, rows, mRHS_cols, outOrder> mul(const SMatrix<Scalar, cols, mRHS_cols>& rhs);
 
     //====================================================================================================
     friend std::ostream& operator<<(std::ostream& out, const SMatrix& m)
@@ -62,17 +67,17 @@ public:
 // Template definition - multiplication of matrices
 //====================================================================================================
 template<typename Scalar, int rows, int cols, int StorageOrder>
-template<int mRHS_cols>
-SMatrix<Scalar, rows, mRHS_cols> SMatrix<Scalar, rows, cols, StorageOrder>::mul(const SMatrix<Scalar, cols, mRHS_cols>& rhs)
+template<int mRHS_cols, int outOrder>
+SMatrix<Scalar, rows, mRHS_cols, outOrder> SMatrix<Scalar, rows, cols, StorageOrder>::mul(const SMatrix<Scalar, cols, mRHS_cols>& rhs)
 {
-    SMatrix<Scalar, rows, mRHS_cols> res;    //if RowMajor: lhs(this): #rows = rows, #columns = cols
+    SMatrix<Scalar, rows, mRHS_cols, outOrder> res;    //if RowMajor: lhs(this): #rows = rows, #columns = cols
     for(int i = 0; i < rows; i++)            //             rhs:       #rows = cols, #columns = mRHS_cols
     {                                        //             res:       #rows = rows, #columns = mRHS_cols
         for(int j = 0; j < mRHS_cols; j++)
         {
             for(int k = 0; k < cols; k++)
             {
-                res.m_data[res.StorageOrder == RowMajor ? i*mRHS_cols + j : j*rows + i] += this->m_data[this->StorageOrder == RowMajor ? i*cols + k : k*rows + i]*rhs.m_data[rhs.StorageOrder == RowMajor ? k*mRHS_cols + j : j*cols + k];
+                res.m_data[res.storage_order == RowMajor ? i*mRHS_cols + j : j*rows + i] += this->m_data[this->storage_order == RowMajor ? i*cols + k : k*rows + i]*rhs.m_data[rhs.storage_order == RowMajor ? k*mRHS_cols + j : j*cols + k];
             }
         }
     }

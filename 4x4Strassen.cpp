@@ -1,6 +1,6 @@
-#import <iostream>
+#include <iostream>
 using namespace std;
-#import "SMatrix.h"
+#include "SMatrix.h"
 
 void randMat(double data[], int tam) {
 	for (int i = 0; i < tam*tam; i++)
@@ -9,8 +9,8 @@ void randMat(double data[], int tam) {
 
 SMatrix<double, 4, 4> A, B, C(0);
 
-randMat(A.data, 4);
-randMat(B.data, 4);
+randMat(A.m_data, 4);
+randMat(B.m_data, 4);
 
 m1 = (A(0,0)+A(1,1)+A(2,2)+A(3,3))*(B(0,0)+B(1,1)+B(2,2)+B(3,3))
 m2 = (A(0,1)-A(1,1)+A(2,3)-A(3,3))*(B(1,0)+B(1,1)+B(3,2)+B(3,3))
