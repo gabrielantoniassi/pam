@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-m[#import <iostream>
-=======
 #include <iostream>
->>>>>>> 59817a223a24fed8535a5cc330db92ff4d68903e
 using namespace std;
 #include "SMatrix.h"
 

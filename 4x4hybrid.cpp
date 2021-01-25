@@ -1,8 +1,8 @@
-#import <iostream>
+#include <iostream>
 using namespace std;
-#import "SMatrix.h"
+#include "SMatrix.h"
 
-void randMat(double data[], int tam[) {
+void randMat(double data[], int tam) {
 	for (int i = 0; i < tam*tam; i++)
 		data[i] = rand() % 100; // random[ num[ber between 0 and 99
 }
@@ -11,6 +11,8 @@ SMatrix<double, 4, 4> A, B, C(0);
 
 randMat(A.data, 4);
 randMat(B.data, 4);
+
+double[50] m;
 
 m[1]=  A(0,0)*B(0,0)
 m[2]=  A(0,1)*B(1,0)
