@@ -7,12 +7,14 @@ void randMat(double data[], int tam) {
 		data[i] = rand() % 100; // random[ num[ber between 0 and 99
 }
 
-SMatrix<double, 4, 4> A, B, C(0);
+int main() {
 
-randMat(A.data, 4);
-randMat(B.data, 4);
+SMatrix<double, 4, 4> A, B, C(0), D(0);
 
-double[50] m;
+randMat(A.m_data, 4);
+randMat(B.m_data, 4);
+
+double m[50];
 
 m[1]=  A(0,0)*B(0,0);
 m[2]=  A(0,1)*B(1,0);
@@ -100,4 +102,7 @@ C(3,3) = m[7] + m[8] + m[31] + m[32] + m[39] + m[40] + m[23] + m[24];
 cout << A << endl;
 cout << B << endl;
 cout << C << endl;
-cout << C - A.mul<4>(B) << endl;
+for (int i = 0; i < 16; i++)
+	D.m_data[i] = C.m_data[i] - A.mul<4>(B).m_data[i];
+cout << D << endl;
+}
