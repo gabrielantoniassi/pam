@@ -23,9 +23,8 @@ int main(int argc, char* argv[])
             m2(i,j) = 1;
         }
     }
-
-    std::cout << m1(0,0) << "\n";
-    std::cout << sm1(0,0) << "\n";	// nao funciona
+    
+    std::cout << sm1(0,0) << "\n";
 
     sm3 = sm1.mul<m>(sm2);
     std::cout << "Res\n" << m1*m2 << "\n\n";
