@@ -1,4 +1,4 @@
-	.file	"sum.cpp"
+	.file	"prod_vec.cpp"
 	.abiversion 2
 	.section	".text"
 	.section	.rodata
@@ -264,7 +264,7 @@ _ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl100
 	.section	.rodata
 	.align 3
 .LC0:
-	.string	"Time taken by sum: "
+	.string	"Time taken: "
 	.align 3
 .LC2:
 	.string	" microseconds"
@@ -289,19 +289,24 @@ main:
 	std 0,16(1)
 	std 30,-16(1)
 	std 31,-8(1)
-	stdu 1,-128(1)
-	.cfi_def_cfa_offset 128
+	stdu 1,-192(1)
+	.cfi_def_cfa_offset 192
 	.cfi_offset 65, 16
 	.cfi_offset 30, -16
 	.cfi_offset 31, -8
 	mr 31,1
 	.cfi_def_cfa_register 31
 	ld 9,-28688(13)
-	std 9,104(31)
+	std 9,168(31)
 	li 9,0
 	lis 9,0x3b9a
 	ori 9,9,0xca00
-	std 9,72(31)
+	std 9,80(31)
+	li 3,16
+	bl _Znam
+	nop
+	mr 9,3
+	std 9,88(31)
 	bl rand
 	nop
 	mr 9,3
@@ -315,7 +320,7 @@ main:
 	subf 9,10,9
 	mtvsrwa 0,9
 	fcfid 0,0
-	stfd 0,80(31)
+	stfd 0,136(31)
 	bl rand
 	nop
 	mr 9,3
@@ -329,55 +334,107 @@ main:
 	subf 9,10,9
 	mtvsrwa 0,9
 	fcfid 0,0
-	stfd 0,88(31)
+	stfd 0,144(31)
+	bl rand
+	nop
+	mr 9,3
+	lis 10,0x51eb
+	ori 10,10,0x851f
+	mulhw 10,9,10
+	srawi 8,10,5
+	srawi 10,9,31
+	subf 10,10,8
+	mulli 10,10,100
+	subf 9,10,9
+	mtvsrwa 0,9
+	fcfid 0,0
+	stfd 0,152(31)
+	bl rand
+	nop
+	mr 9,3
+	lis 10,0x51eb
+	ori 10,10,0x851f
+	mulhw 10,9,10
+	srawi 8,10,5
+	srawi 10,9,31
+	subf 10,10,8
+	mulli 10,10,100
+	subf 9,10,9
+	mtvsrwa 0,9
+	fcfid 0,0
+	stfd 0,160(31)
+	li 9,-40
+	addi 10,31,176
+	lxvd2x 0,10,9
+	xxpermdi 0,0,0,2
+	xxpermdi 0,0,0,2
+	li 9,-80
+	addi 10,31,176
+	stxvd2x 0,10,9
+	li 9,-24
+	addi 10,31,176
+	lxvd2x 0,10,9
+	xxpermdi 0,0,0,2
+	xxpermdi 0,0,0,2
+	li 9,-64
+	addi 10,31,176
+	stxvd2x 0,10,9
 	bl _ZNSt6chrono3_V212system_clock3nowEv
 	nop
 	mr 9,3
-	std 9,40(31)
+	std 9,48(31)
 #APP
- # 12 "sum.cpp" 1
+ # 23 "prod_vec.cpp" 1
 	# antes
  # 0 "" 2
 #NO_APP
 	li 9,0
-	stw 9,36(31)
+	stw 9,44(31)
 .L16:
-	lwa 9,36(31)
-	ld 10,72(31)
+	lwa 9,44(31)
+	ld 10,80(31)
 	cmpd 0,10,9
 	ble 0,.L15
-	lfd 12,80(31)
-	lfd 0,88(31)
-	fadd 0,12,0
-	stfd 0,96(31)
-	lwz 9,36(31)
+	li 9,-80
+	addi 10,31,176
+	lxvd2x 0,10,9
+	xxpermdi 12,0,0,2
+	li 9,-64
+	addi 10,31,176
+	lxvd2x 0,10,9
+	xxpermdi 0,0,0,2
+	xvmuldp 0,12,0
+	ld 9,88(31)
+	xxpermdi 0,0,0,2
+	stxvd2x 0,0,9
+	lwz 9,44(31)
 	addi 9,9,1
-	stw 9,36(31)
+	stw 9,44(31)
 	b .L16
 .L15:
 #APP
- # 15 "sum.cpp" 1
+ # 26 "prod_vec.cpp" 1
 	# depois
  # 0 "" 2
 #NO_APP
 	bl _ZNSt6chrono3_V212system_clock3nowEv
 	nop
 	mr 9,3
-	std 9,48(31)
-	addi 10,31,40
-	addi 9,31,48
+	std 9,56(31)
+	addi 10,31,48
+	addi 9,31,56
 	mr 4,10
 	mr 3,9
 	bl _ZNSt6chronomiINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE
 	nop
 	mr 9,3
-	std 9,64(31)
-	addi 9,31,64
+	std 9,72(31)
+	addi 9,31,72
 	mr 3,9
 	bl _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES8_E4typeERKNS1_IT0_T1_EE
 	nop
 	mr 9,3
-	std 9,56(31)
+	std 9,64(31)
 	addis 4,2,.LC0@toc@ha
 	addi 4,4,.LC0@toc@l
 	addis 9,2,.LC1@toc@ha
@@ -385,7 +442,7 @@ main:
 	bl _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
 	nop
 	mr 30,3
-	addi 9,31,56
+	addi 9,31,64
 	mr 3,9
 	bl _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000EEE5countEv
 	nop
@@ -407,7 +464,7 @@ main:
 	bl _ZNSolsEPFRSoS_E
 	nop
 	li 9,0
-	ld 10,104(31)
+	ld 10,168(31)
 	ld 8,-28688(13)
 	xor. 10,10,8
 	li 8,0
@@ -416,7 +473,7 @@ main:
 	nop
 .L18:
 	mr 3,9
-	addi 1,31,128
+	addi 1,31,192
 	.cfi_def_cfa 1, 0
 	ld 0,16(1)
 	mtlr 0

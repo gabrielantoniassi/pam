@@ -12,7 +12,7 @@ class SMatrix
 {
 public:
     const int m_rows, m_cols, storage_order;
-    Scalar m_data[rows*cols];
+    Scalar *m_data = new Scalar rows*cols;
 
     SMatrix() : m_rows(rows), m_cols(cols), storage_order(StorageOrder) {}
 
@@ -33,8 +33,6 @@ public:
         return m_data[StorageOrder == RowMajor ? i*cols + j : j*rows + i];
     }
 
-    // fix: use = to pass by reference. Create a function to copy matrix
-    // how can one pass it by reference? Because m_data is not a pointer
     void operator=(const SMatrix& m)
     {
 	for (int i = 0; i < m_rows*m_cols; i++)
