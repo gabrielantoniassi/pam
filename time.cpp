@@ -3,33 +3,34 @@
 #include "SMatrix.h"
 #include "4x4Strassen.cpp"
 #include "4x4hybrid.cpp"
-#include <chrono> 
-using namespace std; 
-using namespace std::chrono; 
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
 
 int main() {
 
 	int iter = 3000000;
 
-	// Strassen
-	auto start = high_resolution_clock::now();
-		
-	for (int i = 0; i < iter; i++) {
-		SMatrix<double, 4, 4> sm1(i), sm2(i);
-		SMatrix<double, 4, 4> sm3 = Strassen(sm1, sm2);
-	}
-
-	auto stop = high_resolution_clock::now();
-	auto duration = duration_cast<microseconds>(stop - start);
-	cout << "Time taken by Strassen function: "
-        	<< duration.count() << " microseconds" << endl;
+	// // Strassen
+	// auto start = high_resolution_clock::now();
+	//
+	// for (int i = 0; i < iter; i++) {
+	// 	SMatrix<double, 4, 4> sm1(i), sm2(i);
+	// 	SMatrix<double, 4, 4> sm3 = Strassen(sm1, sm2);
+	// }
+	//
+	// auto stop = high_resolution_clock::now();
+	// auto duration = duration_cast<microseconds>(stop - start);
+	// cout << "Time taken by Strassen function: "
+    //     	<< duration.count() << " microseconds" << endl;
 
 	// hybrid
 	start = high_resolution_clock::now();
-		
+
 	for (int i = 0; i < iter; i++) {
 		SMatrix<double, 4, 4> sm1(i), sm2(i);
-		SMatrix<double, 4, 4> sm3 = hybrid(sm1, sm2);
+		SMatrix<double, 4, 4> sm3;
+		hybrid((double*) sm1.m_data, (double*) sm2.m_data, (double*) sm3.m_data);
 	}
 
 	stop = high_resolution_clock::now();
@@ -39,7 +40,7 @@ int main() {
 
 	// mul
 	start = high_resolution_clock::now();
-		
+
 	for (int i = 0; i < iter; i++) {
 		SMatrix<double, 4, 4> sm1(i), sm2(i);
 		SMatrix<double, 4, 4> sm3 = sm1.mul<4>(sm2);
