@@ -1,8 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "SMatrix.h"
-#include "4x4Strassen.cpp"
-#include "4x4hybrid.cpp"
+#include "4x4hybridvec.h"
 #include <chrono>
 using namespace std;
 using namespace std::chrono;
@@ -25,16 +24,16 @@ int main() {
     //     	<< duration.count() << " microseconds" << endl;
 
 	// hybrid
-	start = high_resolution_clock::now();
+	auto start = high_resolution_clock::now();
 
 	for (int i = 0; i < iter; i++) {
 		SMatrix<double, 4, 4> sm1(i), sm2(i);
 		SMatrix<double, 4, 4> sm3;
-		hybrid((double*) sm1.m_data, (double*) sm2.m_data, (double*) sm3.m_data);
+		hhybrid((double*) sm1.m_data, (double*) sm2.m_data, (double*) sm3.m_data);
 	}
 
-	stop = high_resolution_clock::now();
-	duration = duration_cast<microseconds>(stop - start);
+	auto stop = high_resolution_clock::now();
+	auto duration = duration_cast<microseconds>(stop - start);
 	cout << "Time taken by hydrid function: "
         	<< duration.count() << " microseconds" << endl;
 

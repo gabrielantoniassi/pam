@@ -1,9 +1,9 @@
-#ifndef IBM_SMUL_H
-#define IBM_SMUL_H
+#ifndef hybrid
+#define hybrid
 #include <iostream>
 using namespace std;
 
-void hybrid(const double* mLHS, const double* mRHS, double* const mResult) {
+void hhybrid(const double* mLHS, double* mRHS, double* mResult) {
 
 	__vector double a11, a21, a31, a41,
                     a12, a22, a32, a42,
