@@ -67,9 +67,9 @@ void hhybrid(const double* mLHS, const double* mRHS, double* const mResult) {
 	m[8]=  A(1,1)*B(1,1);
 */
 	m12 = vec_mul(a11, b11);
-	vec_xst(vec_mul(a11, b21), 0, m34);
-	vec_xst(vec_mul(a21, b11), 0, m56);
-	vec_xst(vec_mul(a21, b21), 0, m78);
+	m34 = vec_mul(a11, b21);
+	m56 = vec_mul(a21, b11);
+	m78 = vec_mul(a21, b21);
 /*
 	m[9]=  A(0,2)*B(2,0);
 	m[10]=  A(0,3)*B(3,0);
@@ -80,10 +80,10 @@ void hhybrid(const double* mLHS, const double* mRHS, double* const mResult) {
 	m[15]=  A(1,2)*B(2,1);
 	m[16]=  A(1,3)*B(3,1);
 */
-	vec_xst(vec_mul(a12, b12), 0, m910);
-	vec_xst(vec_mul(a12, b22), 0, m1112);
-	vec_xst(vec_mul(a22, b12), 0, m1314);
-	vec_xst(vec_mul(a22, b22), 0, m1516);
+	m910 = vec_mul(a12, b12);
+	m1112 = vec_mul(a12, b22);
+	m1314 = vec_mul(a22, b12);
+	m1516 = vec_mul(a22, b22);
 /*
 	m[17]= ( A(2,0)+ A(2,2))*(B(0,2)-B(0,0));
 	m[18]= ( A(2,1)+ A(2,3))*(B(1,2)-B(1,0));
@@ -94,10 +94,10 @@ void hhybrid(const double* mLHS, const double* mRHS, double* const mResult) {
 	m[23]= ( A(3,0)+ A(3,2))*(B(0,3)-B(0,1));
 	m[24]= ( A(3,1)+ A(3,3))*(B(1,3)-B(1,1));
 */
-	vec_xst(vec_mul(vec_add(a31, a32), vec_sub(b31, b11)), 0, m1718);
-	vec_xst(vec_mul(vec_add(a31, a32), vec_sub(b41, b21)), 0, m1920);
-	vec_xst(vec_mul(vec_add(a41, a42), vec_sub(b31, b11)), 0, m2122);
-	vec_xst(vec_mul(vec_add(a41, a42), vec_sub(b41, b21)), 0, m2324);
+	m1718 = vec_mul(vec_add(a31, a32), vec_sub(b31, b11));
+	m1920 = vec_mul(vec_add(a31, a32), vec_sub(b41, b21));
+	m2122 = vec_mul(vec_add(a41, a42), vec_sub(b31, b11));
+	m2324 = vec_mul(vec_add(a41, a42), vec_sub(b41, b21));
 /*
 	m[25]= ( A(2,0)+ A(2,2)- A(0,0))*(B(2,2)-B(0,2)+B(0,0));
 	m[26]= ( A(2,1)+ A(2,3)- A(0,1))*(B(3,2)-B(1,2)+B(1,0));
@@ -108,10 +108,10 @@ void hhybrid(const double* mLHS, const double* mRHS, double* const mResult) {
 	m[31]= ( A(3,0)+ A(3,2)- A(1,0))*(B(2,3)-B(0,3)+B(0,1));
 	m[32]= ( A(3,1)+ A(3,3)- A(1,1))*(B(3,3)-B(1,3)+B(1,1));
 */
-	vec_xst(vec_mul(vec_add(a31, vec_sub(a32, a11)), vec_add(vec_sub(b32, b31), b11)), 0, m2526);
-	vec_xst(vec_mul(vec_add(a31, vec_sub(a32, a11)), vec_add(vec_sub(b42, b41), b21)), 0, m2728);
-	vec_xst(vec_mul(vec_add(a41, vec_sub(a42, a21)), vec_add(vec_sub(b32, b31), b11)), 0, m2930);
-	vec_xst(vec_mul(vec_add(a41, vec_sub(a42, a21)), vec_add(vec_sub(b42, b41), b21)), 0, m3132);
+	m2526 = vec_mul(vec_add(a31, vec_sub(a32, a11)), vec_add(vec_sub(b32, b31), b11));
+	m2728 = vec_mul(vec_add(a31, vec_sub(a32, a11)), vec_add(vec_sub(b42, b41), b21));
+	m2930 = vec_mul(vec_add(a41, vec_sub(a42, a21)), vec_add(vec_sub(b32, b31), b11));
+	m3132 = vec_mul(vec_add(a41, vec_sub(a42, a21)), vec_add(vec_sub(b42, b41), b21));
 /*
 	m[33]= ( A(0,0)- A(2,0))*(B(2,2)-B(0,2));
 	m[34]= ( A(0,1)- A(2,1))*(B(3,2)-B(1,2));
@@ -122,10 +122,10 @@ void hhybrid(const double* mLHS, const double* mRHS, double* const mResult) {
 	m[39]= ( A(1,0)- A(3,0))*(B(2,3)-B(0,3));
 	m[40]= ( A(1,1)- A(3,1))*(B(3,3)-B(1,3));
 */
-	vec_xst(vec_mul(vec_sub(a11, a31), vec_sub(b32, b31)), 0, m3334);
-	vec_xst(vec_mul(vec_sub(a11, a31), vec_sub(b42, b41)), 0, m3536);
-	vec_xst(vec_mul(vec_sub(a21, a41), vec_sub(b32, b31)), 0, m3738);
-	vec_xst(vec_mul(vec_sub(a21, a41), vec_sub(b42, b41)), 0, m3940);
+	m3334 = vec_mul(vec_sub(a11, a31), vec_sub(b32, b31));
+	m3536 = vec_mul(vec_sub(a11, a31), vec_sub(b42, b41));
+	m3738 = vec_mul(vec_sub(a21, a41), vec_sub(b32, b31));
+	m3940 = vec_mul(vec_sub(a21, a41), vec_sub(b42, b41));
 /*
 	m[41]= ( A(0,2)- A(2,0)- A(2,2)+ A(0,0))*B(2,2);
 	m[42]= ( A(0,3)- A(2,1)- A(2,3)+ A(0,1))*B(3,2);
@@ -136,10 +136,10 @@ void hhybrid(const double* mLHS, const double* mRHS, double* const mResult) {
 	m[47]= ( A(1,2)- A(3,0)- A(3,2)+ A(1,0))*B(2,3);
 	m[48]= ( A(1,3)- A(3,1)- A(3,3)+ A(1,1))*B(3,3);
 */
-	vec_xst(vec_mul(vec_add(vec_sub(vec_sub(a12, a31), a32), a11), b32), 0, m4142);
-	vec_xst(vec_mul(vec_add(vec_sub(vec_sub(a12, a31), a32), a11), b42), 0, m4344);
-	vec_xst(vec_mul(vec_add(vec_sub(vec_sub(a22, a41), a42), a21), b32), 0, m4546);
-	vec_xst(vec_mul(vec_add(vec_sub(vec_sub(a22, a41), a42), a21), b42), 0, m4748);
+	m4142 = vec_mul(vec_add(vec_sub(vec_sub(a12, a31), a32), a11), b32));
+	m4344 = vec_mul(vec_add(vec_sub(vec_sub(a12, a31), a32), a11), b42));
+	m4546 = vec_mul(vec_add(vec_sub(vec_sub(a22, a41), a42), a21), b32));
+	m4748 = vec_mul(vec_add(vec_sub(vec_sub(a22, a41), a42), a21), b42));
 /*
 	m[49]=  A(2,2)*(B(2,0)-B(2,2)+B(0,2)-B(0,0));
 	m[50]=  A(2,3)*(B(3,0)-B(3,2)+B(1,2)-B(1,0));
@@ -150,10 +150,10 @@ void hhybrid(const double* mLHS, const double* mRHS, double* const mResult) {
 	m[55]=  A(3,2)*(B(2,1)-B(2,3)+B(0,3)-B(0,1));
 	m[56]=  A(3,3)*(B(3,1)-B(3,3)+B(1,3)-B(1,1));
 */
-	vec_xst(vec_mul(a32, vec_sub(vec_add(vec_sub(b12, b32), b31), b11)), 0, m4950);
-	vec_xst(vec_mul(a32, vec_sub(vec_add(vec_sub(b22, b42), b41), b21)), 0, m5152);
-	vec_xst(vec_mul(a42, vec_sub(vec_add(vec_sub(b12, b32), b31), b11)), 0, m5354);
-	vec_xst(vec_mul(a42, vec_sub(vec_add(vec_sub(b22, b42), b41), b21)), 0, m5556);
+	m4950 = vec_mul(a32, vec_sub(vec_add(vec_sub(b12, b32), b31), b11));
+	m5152 = vec_mul(a32, vec_sub(vec_add(vec_sub(b22, b42), b41), b21));
+	m5354 = vec_mul(a42, vec_sub(vec_add(vec_sub(b12, b32), b31), b11));
+	m5556 = vec_mul(a42, vec_sub(vec_add(vec_sub(b22, b42), b41), b21));
 
 	__vector double mm0103, mm0204, mm0507, mm0608, mm0911,
 					mm1012, mm1315, mm1416, mm1719, mm1820,
