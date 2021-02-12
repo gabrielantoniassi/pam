@@ -7,6 +7,8 @@ void hhybrid(const double* mLHS, double* mRHS, double* mResult) {
 
 	__vector double a11, a21, a31, a41,
                     a12, a22, a32, a42,
+					b11, b21, b31, b41,
+					b12, b22, b32, b42,
                     mRHSrow11, mRHSrow21, mRHSrow31, mRHSrow41,
                     mRHSrow12, mRHSrow22, mRHSrow32, mRHSrow42;
 
