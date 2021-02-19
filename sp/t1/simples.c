@@ -11,8 +11,8 @@ int main () {
 	double e[2], pi[2], res1[2], res2[2];
 	e[0] = 1.2;
 	e[1] = 1.4;
-	pi[0] = 1.5;
-	pi[1] = 1.7;
+	pi[0] = 1.05;
+	pi[1] = 1.07;
 
 	__vector double ev, piv;
 	ev = vec_xl(0, e);
