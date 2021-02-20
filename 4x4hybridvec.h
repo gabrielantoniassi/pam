@@ -1,6 +1,7 @@
 #ifndef hybrid
 #define hybrid
 #include <iostream>
+#include <altivec.h>
 using namespace std;
 
 void hhybrid(const double* mLHS, const double* mRHS, double* const mResult) {
@@ -136,10 +137,10 @@ void hhybrid(const double* mLHS, const double* mRHS, double* const mResult) {
 	m[47]= ( A(1,2)- A(3,0)- A(3,2)+ A(1,0))*B(2,3);
 	m[48]= ( A(1,3)- A(3,1)- A(3,3)+ A(1,1))*B(3,3);
 */
-	m4142 = vec_mul(vec_add(vec_sub(vec_sub(a12, a31), a32), a11), b32));
-	m4344 = vec_mul(vec_add(vec_sub(vec_sub(a12, a31), a32), a11), b42));
-	m4546 = vec_mul(vec_add(vec_sub(vec_sub(a22, a41), a42), a21), b32));
-	m4748 = vec_mul(vec_add(vec_sub(vec_sub(a22, a41), a42), a21), b42));
+	m4142 = vec_mul(vec_add(vec_sub(vec_sub(a12, a31), a32), a11), b32);
+	m4344 = vec_mul(vec_add(vec_sub(vec_sub(a12, a31), a32), a11), b42);
+	m4546 = vec_mul(vec_add(vec_sub(vec_sub(a22, a41), a42), a21), b32);
+	m4748 = vec_mul(vec_add(vec_sub(vec_sub(a22, a41), a42), a21), b42);
 /*
 	m[49]=  A(2,2)*(B(2,0)-B(2,2)+B(0,2)-B(0,0));
 	m[50]=  A(2,3)*(B(3,0)-B(3,2)+B(1,2)-B(1,0));

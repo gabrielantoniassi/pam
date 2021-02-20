@@ -108,107 +108,6 @@ main:
 	lxvd2x 0,10,9
 	xxpermdi 0,0,0,2
 	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-	xvadddp 0,12,0
-
 	li 9,-40
 	xxpermdi 0,0,0,2
 	addi 10,31,240
@@ -249,107 +148,6 @@ main:
 	lxvd2x 0,10,9
 	xxpermdi 0,0,0,2
 	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-	xvmuldp 0,12,0
-
 	li 9,-24
 	xxpermdi 0,0,0,2
 	addi 10,31,240
@@ -460,12 +258,12 @@ main:
 	.long	1073112678
 	.align 3
 .LC2:
-	.long	0
-	.long	1073217536
+	.long	3435973837
+	.long	1072745676
 	.align 3
 .LC3:
-	.long	858993459
-	.long	1073427251
+	.long	1374389535
+	.long	1072766648
 	.ident	"GCC: (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0"
 	.gnu_attribute 4, 1
 	.section	.note.GNU-stack,"",@progbits

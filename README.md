@@ -52,6 +52,7 @@ Our benchmarks can compare results with the following libraries:
 ```bash
   make compare_eigen EIGEN_FOLDER=<folder> GOOGLE_BENCHMARK_FOLDER=<folder>
 ``` 
+<<<<<<< HEAD
 
 ## The SMatrix class
 
@@ -113,3 +114,6 @@ int main () {
   return 0;
 }
 ```
+=======
+  
+>>>>>>> c08fa06d4146e92508f3d5d9be25c9ac3aa119c1
